@@ -1,0 +1,33 @@
+.map-menu {
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.05);  
+}
+
+.map-menu-title {
+  padding: 8px;
+  font-family: inherit;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-bottom: 1px solid #ededed;
+}
+
+.map-menu-item {  
+  box-sizing: border-box;
+  background-color: white;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.1s; 
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map-menu-item:not(:last-child) {
+  border-bottom: 1px solid #ededed;
+}
+
+.map-menu-item:hover {
+  background-color: #f7f7f7;
+}
