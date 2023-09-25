@@ -1,5 +1,8 @@
 .map-menu {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
   background-color: white;
   border-radius: 2px;
   box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.05);  
@@ -13,6 +16,11 @@
   border-bottom: 1px solid #ededed;
 }
 
+.map-menu-items {
+  flex: 1;
+  overflow-y: auto;
+}
+
 .map-menu-item {  
   box-sizing: border-box;
   background-color: white;
@@ -24,10 +32,27 @@
   text-overflow: ellipsis;
 }
 
-.map-menu-item:not(:last-child) {
-  border-bottom: 1px solid #ededed;
-}
-
 .map-menu-item:hover {
   background-color: #f7f7f7;
+}
+
+.map-menu-item-flex-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.map-menu-item-separator {
+   border-bottom: 1px solid #ededed;
+}
+
+.map-menu-section {
+  border-top: 1px solid #ededed;
+}
+
+.map-menu-section-title {
+  padding: 8px 8px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  color:#a9afb5;
 }
