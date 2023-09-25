@@ -1,18 +1,18 @@
-# Map menu for Mapbox GL JS and Maplibre
+# Map menu for Mapbox GL JS and Maplibre GL JS
 
 A simple menu control for use cases such as toggling the visibility of map layers.
 
 ## Usage
- 
+
 Add the control resources to your webpage:
 
 ```css
 <link rel="stylesheet" type="text/css" href="./map-menu.css" />
 <script src="./map-menu.js"></script>
 ```
- 
+
 Example:
- 
+
 ```javascript
 const menu = new mapmenu.Menu({ title: "Layers" });
 map.addControl(menu);
@@ -28,7 +28,7 @@ menu.addItem(item1);
 const item2 = new mapmenu.MenuItem({
   label: () => {
     const el = document.createElement("div");
-    
+
     // Use this class on the label to apply a flex layout to the label children
     el.classList.add("map-menu-item-flex-layout");
 
@@ -68,74 +68,71 @@ const item5 = new mapmenu.MenuItem({
   label: "Layer 5"
 });
 menu.addItem(item5);
-``` 
- 
+```
+
 ## API
- 
+
 ### mapmenu.Menu
- 
+
 #### Options:
- 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| title | string | “” | The menu title |
-| width | int | 240 | The width of the menu in pixels |
-| maxHeight | int | auto | The maximum height of the menu in pixels |
- 
- 
+
+| Name      | Type   | Default value | Description                              |
+| --------- | ------ | ------------- | ---------------------------------------- |
+| title     | string | “”            | The menu title                           |
+| width     | int    | 240           | The width of the menu in pixels          |
+| maxHeight | int    | auto          | The maximum height of the menu in pixels |
+
 #### Methods:
- 
-``` addItem(item: mapmenu.MenuItem) ```
- 
+
+`addItem(item: mapmenu.MenuItem)`
+
 Adds an item to the menu. Item is appended to the menu’s items.
- 
-``` getItems() ```
- 
+
+`getItems()`
+
 Returns all items added to the menu.
- 
+
 ### mapmenu.MenuItem
- 
+
 #### Options:
- 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| label | string | none | The menu item label |
-| onClick | Function | none | Function to be called when the menu item is clicked |
+
+| Name    | Type     | Default value | Description                                         |
+| ------- | -------- | ------------- | --------------------------------------------------- |
+| label   | string   | none          | The menu item label                                 |
+| onClick | Function | none          | Function to be called when the menu item is clicked |
 
 #### Methods:
 
-``` remove() ```
+`remove()`
 
 Removes the menu item from the menu.
 
 ### mapmenu.MenuSection
 
 #### Options:
- 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| title | string | “” | The section title |
+
+| Name  | Type   | Default value | Description       |
+| ----- | ------ | ------------- | ----------------- |
+| title | string | “”            | The section title |
 
 #### Methods:
- 
-``` addItem(item: mapmenu.MenuItem) ```
- 
+
+`addItem(item: mapmenu.MenuItem)`
+
 Adds an item to the section. Item is appended to the section's items.
- 
-``` getItems() ```
- 
+
+`getItems()`
+
 Returns all items added to the section.
 
-``` remove() ```
+`remove()`
 
 Removes the section from the menu.
- 
+
 ### mapmenu.MenuItemSeparator
 
 #### Methods:
 
-``` remove() ```
+`remove()`
 
 Removes the menu item separator from the menu.
-
- 
