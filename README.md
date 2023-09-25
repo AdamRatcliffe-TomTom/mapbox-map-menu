@@ -6,14 +6,14 @@ A simple menu control for use cases such as toggling the visibility of map layer
  
 Add the control resources to your webpage:
 
-``` 
+```css
 <link rel="stylesheet" type="text/css" href="./map-menu.css" />
 <script src="./map-menu.js"></script>
 ```
  
 Example:
  
-```
+```javascript
 const menu = new mapmenu.Menu({ title: "Layers" });
 map.addControl(menu);
 
