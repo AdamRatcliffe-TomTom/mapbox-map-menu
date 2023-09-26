@@ -1,9 +1,9 @@
-import MenuItem from "./MenuItem";
-import MenuItemSeparator from "./MenuItemSeparator";
-import MenuSection from "./MenuSection";
+import MenuItemGroup from "./MenuItemGroup";
 
-class Menu {
+class Menu extends MenuItemGroup {
   constructor({ title = "", width = 240, maxHeight = "auto" } = {}) {
+    super();
+
     this.title = title;
     this.width = width;
     this.maxHeight = maxHeight;
@@ -17,41 +17,19 @@ class Menu {
     this.element.className = "mapboxgl-ctrl map-menu";
 
     if (this.title) {
-      this.renderTitle();
+      this.element.appendChild(this.renderTitle());
     }
 
-    this.itemContainer = document.createElement("div");
-    this.itemContainer.className = "map-menu-items";
-    this.element.appendChild(this.itemContainer);
+    this.element.appendChild(this.renderItems());
 
-    this.items.forEach((item) => {
-      this.itemContainer.appendChild(item.render(this.map));
-    });
+    return this.element;
   }
 
   renderTitle() {
     const titleElement = document.createElement("div");
     titleElement.textContent = this.title;
     titleElement.classList.add("map-menu-title");
-    this.element.appendChild(titleElement);
-  }
-
-  addItem(item) {
-    if (
-      item instanceof MenuItem ||
-      item instanceof MenuItemSeparator ||
-      item instanceof MenuSection
-    ) {
-      this.items.push(item);
-    }
-
-    if (this.map) {
-      this.itemContainer.appendChild(item.render(this.map));
-    }
-  }
-
-  getItems() {
-    return this.items;
+    return titleElement;
   }
 
   onAdd(map) {

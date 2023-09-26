@@ -1,10 +1,10 @@
-import MenuItem from "./MenuItem";
-import MenuItemSeparator from "./MenuItemSeparator";
+import MenuItemGroup from "./MenuItemGroup";
 
-class MenuSection {
+class MenuSection extends MenuItemGroup {
   constructor({ title = "" } = {}) {
+    super();
+
     this.title = title;
-    this.items = [];
   }
 
   render(map) {
@@ -13,16 +13,10 @@ class MenuSection {
     this.element.classList.add("map-menu-section");
 
     if (this.title) {
-      this.renderTitle();
+      this.element.appendChild(this.renderTitle());
     }
 
-    this.itemContainer = document.createElement("div");
-    this.itemContainer.className = "map-menu-section-items";
-    this.element.appendChild(this.itemContainer);
-
-    this.items.forEach((item) => {
-      this.itemContainer.appendChild(item.render(map));
-    });
+    this.element.appendChild(this.renderItems());
 
     return this.element;
   }
@@ -31,21 +25,8 @@ class MenuSection {
     const titleElement = document.createElement("div");
     titleElement.textContent = this.title;
     titleElement.classList.add("map-menu-section-title");
-    this.element.appendChild(titleElement);
-  }
 
-  addItem(item) {
-    if (item instanceof MenuItem || item instanceof MenuItemSeparator) {
-      this.items.push(item);
-    }
-
-    if (this.map) {
-      this.itemContainer.appendChild(item.render(this.map));
-    }
-  }
-
-  getItems() {
-    return this.items;
+    return titleElement;
   }
 
   remove() {
