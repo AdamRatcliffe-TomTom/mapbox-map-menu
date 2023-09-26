@@ -44,6 +44,10 @@ class Menu {
     ) {
       this.items.push(item);
     }
+
+    if (this.map) {
+      this.itemContainer.appendChild(item.render(this.map));
+    }
   }
 
   getItems() {

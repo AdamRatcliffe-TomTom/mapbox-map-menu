@@ -38,6 +38,10 @@ class MenuSection {
     if (item instanceof MenuItem || item instanceof MenuItemSeparator) {
       this.items.push(item);
     }
+
+    if (this.map) {
+      this.itemContainer.appendChild(item.render(this.map));
+    }
   }
 
   getItems() {
