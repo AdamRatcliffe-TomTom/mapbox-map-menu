@@ -1,11 +1,9 @@
 class MenuItemSeparator {
-  constructor() {
-    this.render();
-  }
-
   render() {
     this.element = document.createElement("div");
     this.element.classList.add("map-menu-item-separator");
+
+    return this.element;
   }
 
   remove() {

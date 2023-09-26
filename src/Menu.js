@@ -8,8 +8,6 @@ class Menu {
     this.width = width;
     this.maxHeight = maxHeight;
     this.items = [];
-
-    this.render();
   }
 
   render() {
@@ -25,6 +23,10 @@ class Menu {
     this.itemContainer = document.createElement("div");
     this.itemContainer.className = "map-menu-items";
     this.element.appendChild(this.itemContainer);
+
+    this.items.forEach((item) => {
+      this.itemContainer.appendChild(item.render(this.map));
+    });
   }
 
   renderTitle() {
@@ -41,7 +43,6 @@ class Menu {
       item instanceof MenuSection
     ) {
       this.items.push(item);
-      this.itemContainer.appendChild(item.element);
     }
   }
 
@@ -51,6 +52,9 @@ class Menu {
 
   onAdd(map) {
     this.map = map;
+
+    this.render();
+
     return this.element;
   }
 

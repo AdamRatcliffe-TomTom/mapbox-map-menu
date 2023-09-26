@@ -1,12 +1,11 @@
 class MenuItem {
-  constructor({ label, onClick }) {
+  constructor({ label, onClick } = {}) {
     this.label = label;
     this.onClick = onClick;
-
-    this.render();
   }
 
-  render() {
+  render(map) {
+    this.map = map;
     this.element = document.createElement("div");
     this.element.classList.add("map-menu-item");
 
@@ -19,6 +18,8 @@ class MenuItem {
     if (typeof this.onClick === "function") {
       this.element.addEventListener("click", this.onClick);
     }
+
+    return this.element;
   }
 
   remove() {

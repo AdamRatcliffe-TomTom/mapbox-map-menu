@@ -5,11 +5,10 @@ class MenuSection {
   constructor({ title = "" } = {}) {
     this.title = title;
     this.items = [];
-
-    this.render();
   }
 
-  render() {
+  render(map) {
+    this.map = map;
     this.element = document.createElement("div");
     this.element.classList.add("map-menu-section");
 
@@ -20,6 +19,12 @@ class MenuSection {
     this.itemContainer = document.createElement("div");
     this.itemContainer.className = "map-menu-section-items";
     this.element.appendChild(this.itemContainer);
+
+    this.items.forEach((item) => {
+      this.itemContainer.appendChild(item.render(map));
+    });
+
+    return this.element;
   }
 
   renderTitle() {
@@ -32,7 +37,6 @@ class MenuSection {
   addItem(item) {
     if (item instanceof MenuItem || item instanceof MenuItemSeparator) {
       this.items.push(item);
-      this.itemContainer.appendChild(item.element);
     }
   }
 

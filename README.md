@@ -64,8 +64,10 @@ menu.addItem(section);
 const separator = new mapmenu.MenuItemSeparator();
 menu.addItem(separator);
 
-const item5 = new mapmenu.MenuItem({
-  label: "Layer 5"
+// Adds a menu item for the "Park" layer, allowing it's visibility on the map to be toggled
+const item5 = new mapmenu.LayerMenuItem({
+  label: "Park",
+  layerId: "Park"
 });
 menu.addItem(item5);
 ```
@@ -73,6 +75,8 @@ menu.addItem(item5);
 ## API
 
 ### mapmenu.Menu
+
+A menu control that implements the [IControl](https://docs.mapbox.com/mapbox-gl-js/api/markers/#icontrol) interface.
 
 #### Options:
 
@@ -92,13 +96,16 @@ Adds an item to the menu. Item is appended to the menu’s items.
 
 Returns all items added to the menu.
 
+
 ### mapmenu.MenuItem
+
+A menu item. The display label can either be provided as a string or Function to render the label element.
 
 #### Options:
 
 | Name    | Type     | Default value | Description                                         |
 | ------- | -------- | ------------- | --------------------------------------------------- |
-| label   | string   | none          | The menu item label                                 |
+| label   | string \| Function  | none          | The menu item label                                 |
 | onClick | Function | none          | Function to be called when the menu item is clicked |
 
 #### Methods:
@@ -106,6 +113,27 @@ Returns all items added to the menu.
 `remove()`
 
 Removes the menu item from the menu.
+
+### mapmenu.LayerMenuItem
+
+A specialized menu item that's configured with the ID of a layer in the map style and provides a checkbox to toggle its visibility on the map.
+
+#### Options:
+
+| Name    | Type     | Default value | Description                                         |
+| ------- | -------- | ------------- | --------------------------------------------------- |
+| label   | string | none          | The menu item label                                 |
+| layerId | string | none          | The ID of the layer to create the menu item for |
+
+#### Methods:
+
+`remove()`
+
+Removes the menu item from the menu.
+
+`setLayerVisibility(visibility: string)`
+
+Sets the visibility of the layer associated with this menu item. The visibility argument must be one of "visible" or "none".
 
 ### mapmenu.MenuSection
 
