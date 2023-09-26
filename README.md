@@ -15,7 +15,6 @@ Example:
 
 ```javascript
 const menu = new mapmenu.Menu({ title: "Layers" });
-map.addControl(menu);
 
 // Add a simple menu item
 const item1 = new mapmenu.MenuItem({
@@ -70,6 +69,8 @@ const item5 = new mapmenu.LayerMenuItem({
   layerId: "Park"
 });
 menu.addItem(item5);
+
+map.addControl(menu);
 ```
 
 ## API
