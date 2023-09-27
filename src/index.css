@@ -1,3 +1,5 @@
+/* Menu */
+
 .map-menu {
   box-sizing: border-box;
   display: flex;
@@ -20,6 +22,8 @@
   overflow-y: auto;
 }
 
+/* Menu Item */
+
 .map-menu-item {  
   box-sizing: border-box;
   background-color: white;
@@ -41,20 +45,7 @@
   justify-content: space-between;
 }
 
-.map-menu-item-separator {
-   border-bottom: 1px solid #ededed;
-}
-
-.map-menu-section {
-  border-top: 1px solid #ededed;
-}
-
-.map-menu-section-title {
-  padding: 8px 16px 0;
-  font-size: 1.1em;
-  font-weight: bold;
-  color:#a9afb5;
-}
+/* Layer Menu Item */
 
 .map-layer-menu-item {
   display: grid;  
@@ -73,4 +64,30 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* Menu Item Separator */
+
+.map-menu-item-separator {
+   border-bottom: 1px solid #ededed;
+}
+
+/* Menu Section */
+
+.map-menu-section {
+  border-top: 1px solid #ededed;
+}
+
+.map-menu-section-title {
+  padding: 8px 16px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  color:#a9afb5;
+}
+
+/* Context Menu */
+
+.map-context-menu {
+  position: absolute;
+  display: none;
 }

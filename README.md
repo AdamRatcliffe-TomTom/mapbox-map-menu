@@ -230,6 +230,10 @@ A context menu for the map.
 
 Adds the context menu to the map.
 
+`remove()`
+
+Removes the context menu from the map.
+
 `addItem(item: mapmenu.MenuItem)`
 
 Adds an item to the menu. Item is appended to the menu’s items.

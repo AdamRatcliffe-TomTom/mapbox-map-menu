@@ -44,9 +44,13 @@ class LayerMenuItem extends MenuItem {
     });
     this.element.appendChild(labelElement);
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = true;
+    const checkbox = createElement({
+      tagName: "input",
+      properties: {
+        type: "checkbox",
+        checked: true
+      }
+    });
     checkbox.addEventListener("click", this.handleToggle);
     this.element.appendChild(checkbox);
 

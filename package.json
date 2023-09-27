@@ -9,7 +9,6 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@watergis/legend-symbol": "^0.2.3",
-    "lodash.merge": "^4.6.2"
+    "@watergis/legend-symbol": "^0.2.3"
   }
 }

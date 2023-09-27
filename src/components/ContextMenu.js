@@ -1,24 +1,39 @@
 import Menu from "./Menu";
-import merge from "lodash.merge";
 
 const defaultOptions = {
-  width: 180,
-  style: { position: "absolute", display: "none" }
+  width: 180
 };
 
 class ContextMenu extends Menu {
   constructor(options) {
-    super(merge(defaultOptions, options));
+    super({ ...defaultOptions, ...options });
+
+    this.boundHide = this.hide.bind();
+  }
+
+  render(map) {
+    super.render(map);
+    this.element.classList.add("map-context-menu");
   }
 
   addToMap(map) {
     this.render(map);
     map.getContainer().appendChild(this.element);
+    this.addEventListeners();
+  }
 
+  addEventListeners() {
     map.on("contextmenu", this.handleContextMenu);
     map.on("move", this.hide);
 
-    window.addEventListener("click", this.hide.bind(this));
+    window.addEventListener("click", this.boundHide);
+  }
+
+  removeEventListeners() {
+    map.off("contextmenu", this.handleContextMenu);
+    map.off("move", this.hide);
+
+    window.removeEventListener("click", this.boundHide);
   }
 
   handleContextMenu = (event) => {
@@ -35,9 +50,19 @@ class ContextMenu extends Menu {
     this.element.style.display = "none";
   };
 
-  setPosition(point) {
+  setPosition = (point) => {
     this.element.style.left = `${point.x}px`;
     this.element.style.top = `${point.y}px`;
+  };
+
+  remove() {
+    super.remove();
+
+    if (this.element && this.element.parentElement) {
+      this.element.parentElement.removeChild(this.element);
+    }
+
+    this.removeEventListeners();
   }
 }
 
