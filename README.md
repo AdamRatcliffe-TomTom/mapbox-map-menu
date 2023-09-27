@@ -84,7 +84,7 @@ A menu control that implements the [IControl](https://docs.mapbox.com/mapbox-gl-
 | Name      | Type   | Default value | Description                              |
 | --------- | ------ | ------------- | ---------------------------------------- |
 | title     | string | “”            | The menu title                           |
-| width     | int    | 240           | The width of the menu in pixels          |
+| width     | int    | 300           | The width of the menu in pixels          |
 | maxHeight | int    | auto          | The maximum height of the menu in pixels |
 
 #### Methods:
