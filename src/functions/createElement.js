@@ -2,7 +2,7 @@ export default function createElement({
   tagName = "div",
   attributes,
   properties,
-  styles,
+  style,
   className
 } = {}) {
   const element = document.createElement(tagName);
@@ -17,8 +17,8 @@ export default function createElement({
     Object.assign(element, properties);
   }
 
-  if (styles) {
-    Object.assign(element.style, styles);
+  if (style) {
+    Object.assign(element.style, style);
   }
 
   if (className) {

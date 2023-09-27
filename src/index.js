@@ -4,6 +4,7 @@ import MenuItem from "./components/MenuItem";
 import MenuItemSeparator from "./components/MenuItemSeparator";
 import MenuSection from "./components/MenuSection";
 import LayerMenuItem from "./components/LayerMenuItem";
+import ContextMenu from "./components/ContextMenu";
 
 export {
   MenuControl,
@@ -11,5 +12,6 @@ export {
   MenuItem,
   MenuItemSeparator,
   MenuSection,
-  LayerMenuItem
+  LayerMenuItem,
+  ContextMenu
 };

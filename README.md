@@ -1,6 +1,6 @@
 # Map menu for Mapbox GL JS and Maplibre GL JS
 
-Menu component for use cases such as toggling the visibility of map layers.
+Menu control and context menu components with support for rendering map legend entries.
 
 ## Usage
 
@@ -11,7 +11,7 @@ Add the control resources to your webpage:
 <script src="./map-menu.js"></script>
 ```
 
-Example:
+### Menu control example
 
 ```javascript
 const menu = new mapmenu.MenuControl({ title: "Layers" });
@@ -73,21 +73,48 @@ menu.addItem(item5);
 map.addControl(menu);
 ```
 
+### Context menu example
+
+```javascript
+const contextMenu = new mapmenu.ContextMenu();
+
+const item1 = new mapmenu.MenuItem({
+  label: "Add origin"
+});
+contextMenu.addItem(item1);
+
+const item2 = new mapmenu.MenuItem({
+  label: "Add destination"
+});
+contextMenu.addItem(item2);
+
+contextMenu.addToMap(map);
+```
+
 ## API
+
+### Classes
+
+- [mapmenu.MenuControl](#mapmenumenucontrol)
+- [mapmenu.MenuItem](#mapmenumenuitem)
+- [mapmenu.LayerMenuItem](#mapmenulayermenuitem)
+- [mapmenu.MenuSection](#mapmenumenusection)
+- [mapmenu.MenuItemSeparator](#mapmenumenuitemseparator)
+- [mapmenu.ContextMenu](#mapmenucontextmenu)
 
 ### mapmenu.MenuControl
 
 A menu control that implements the [IControl](https://docs.mapbox.com/mapbox-gl-js/api/markers/#icontrol) interface.
 
-#### Options:
+#### Options
 
 | Name      | Type   | Default value | Description                              |
 | --------- | ------ | ------------- | ---------------------------------------- |
 | title     | string | “”            | The menu title                           |
 | width     | int    | 300           | The width of the menu in pixels          |
-| maxHeight | int    | auto          | The maximum height of the menu in pixels |
+| style | Object    | none          | Style properties to be applied to the menu |
 
-#### Methods:
+#### Methods
 
 `addItem(item: mapmenu.MenuItem)`
 
@@ -106,14 +133,15 @@ Returns all items added to the menu.
 
 A menu item. The display label can either be provided as a string or Function to render the label element.
 
-#### Options:
+#### Options
 
 | Name    | Type     | Default value | Description                                         |
 | ------- | -------- | ------------- | --------------------------------------------------- |
 | label   | string \| Function  | none          | The menu item label                                 |
 | onClick | Function | none          | Function to be called when the menu item is clicked |
+| style | Object    | none          | Style properties to be applied to the menu item |
 
-#### Methods:
+#### Methods
 
 `remove()`
 
@@ -123,15 +151,16 @@ Removes the menu item from the menu.
 
 A specialized menu item that's configured with the ID of a layer in the map style and provides a checkbox to toggle its visibility on the map.
 
-#### Options:
+#### Options
 
 | Name    | Type     | Default value | Description                                         |
 | ------- | -------- | ------------- | --------------------------------------------------- |
 | label   | string | none          | The menu item label                                 |
 | layerId | string | none          | The ID of the layer to create the menu item for |
 | showSymbol | boolean | true | If true will attempt to render a symbol for the layer |
+| style | Object    | none          | Style properties to be applied to the menu |
 
-#### Methods:
+#### Methods
 
 `remove()`
 
@@ -143,13 +172,14 @@ Sets the visibility of the layer associated with this menu item. The visibility 
 
 ### mapmenu.MenuSection
 
-#### Options:
+#### Options
 
 | Name  | Type   | Default value | Description       |
 | ----- | ------ | ------------- | ----------------- |
 | title | string | “”            | The section title |
+| style | Object    | none          | Style properties to be applied to the menu section |
 
-#### Methods:
+#### Methods
 
 `addItem(item: mapmenu.MenuItem)`
 
@@ -169,8 +199,57 @@ Removes the section from the menu.
 
 ### mapmenu.MenuItemSeparator
 
-#### Methods:
+#### Options
+
+| Name  | Type   | Default value | Description       |
+| ----- | ------ | ------------- | ----------------- |
+| style | Object    | none          | Style properties to be applied to the menu item separator |
+
+#### Methods
 
 `remove()`
 
 Removes the menu item separator from the menu.
+
+### mapmenu.ContextMenu
+
+A context menu for the map.
+
+#### Options
+
+| Name      | Type   | Default value | Description                              |
+| --------- | ------ | ------------- | ---------------------------------------- |
+| title     | string | “”            | The menu title                           |
+| width     | int    | 180           | The width of the menu in pixels          |
+| style | Object    | none          | Style properties to be applied to the menu |
+
+
+#### Methods
+
+`addToMap(map: Map)`
+
+Adds the context menu to the map.
+
+`addItem(item: mapmenu.MenuItem)`
+
+Adds an item to the menu. Item is appended to the menu’s items.
+
+`insertItem(item: mapmenu.MenuItem, index: int)`
+
+Inserts an item in the menu at the specified index.
+
+`getItems()`
+
+Returns all items added to the menu.
+
+`show()`
+
+Shows the menu.
+
+`hide()`
+
+Hides the menu.
+
+`setPosition(point: Point)`
+
+Sets the menu's position.

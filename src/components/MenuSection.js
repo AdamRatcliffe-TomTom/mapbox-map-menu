@@ -2,16 +2,18 @@ import MenuItemGroup from "./MenuItemGroup";
 import createElement from "../functions/createElement";
 
 class MenuSection extends MenuItemGroup {
-  constructor({ title = "" } = {}) {
+  constructor({ title = "", style = {} } = {}) {
     super();
 
     this.title = title;
+    this.style = style;
   }
 
   render(map) {
     this.map = map;
     this.element = createElement({
-      className: "map-menu-section"
+      className: "map-menu-section",
+      style: this.style
     });
 
     if (this.title) {

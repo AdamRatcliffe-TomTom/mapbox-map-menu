@@ -23,7 +23,8 @@ class LayerMenuItem extends MenuItem {
     }
 
     this.element = createElement({
-      className: "map-menu-item map-layer-menu-item"
+      className: "map-menu-item map-layer-menu-item",
+      style: this.style
     });
 
     if (this.showSymbol) {

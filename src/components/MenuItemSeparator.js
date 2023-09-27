@@ -1,9 +1,14 @@
 import createElement from "../functions/createElement";
 
 class MenuItemSeparator {
+  constructor({ style = {} } = {}) {
+    this.style = style;
+  }
+
   render() {
     this.element = createElement({
-      className: "map-menu-item-separator"
+      className: "map-menu-item-separator",
+      style: this.style
     });
     return this.element;
   }

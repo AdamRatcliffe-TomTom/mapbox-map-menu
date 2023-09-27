@@ -2,12 +2,12 @@ import MenuItemGroup from "./MenuItemGroup";
 import createElement from "../functions/createElement";
 
 class Menu extends MenuItemGroup {
-  constructor({ title = "", width = 300, maxHeight = "auto" } = {}) {
+  constructor({ title = "", width = 300, style = {} } = {}) {
     super();
 
     this.title = title;
     this.width = width;
-    this.maxHeight = maxHeight;
+    this.style = style;
     this.items = [];
   }
 
@@ -15,9 +15,9 @@ class Menu extends MenuItemGroup {
     this.map = map;
     this.map.on("idle", this.onMapReady);
     this.element = createElement({
-      styles: {
+      style: {
         width: `${this.width}px`,
-        maxHeight: `${this.maxHeight}px`
+        ...this.style
       }
     });
 
@@ -28,6 +28,8 @@ class Menu extends MenuItemGroup {
     if (this.map.getStyle().layers.length > 0) {
       this.map.off("idle", this.onMapReady);
 
+      // Only add the menu class after the map is ready as don't want to show it until the child items can be rendered,
+      // alternative would be to show a spinner while the map is loading
       this.element.classList.add("map-menu");
 
       if (this.title) {
@@ -45,7 +47,6 @@ class Menu extends MenuItemGroup {
         textContent: this.title
       }
     });
-    // titleElement.textContent = this.title;
 
     return titleElement;
   }
