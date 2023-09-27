@@ -6,7 +6,9 @@ class LayerMenuItem extends MenuItem {
   constructor(options = {}) {
     super(options);
 
-    this.layerId = options.layerId;
+    const { layerId, showSymbol = true } = options;
+    this.layerId = layerId;
+    this.showSymbol = showSymbol;
   }
 
   render(map) {
@@ -22,9 +24,14 @@ class LayerMenuItem extends MenuItem {
     this.element = document.createElement("div");
     this.element.classList.add("map-menu-item", "map-layer-menu-item");
 
-    const symbol = LegendSymbol({ sprite, zoom, layer });
-    const svg = symbolToElement(symbol);
-    this.element.appendChild(svg);
+    if (this.showSymbol) {
+      const symbol = LegendSymbol({ sprite, zoom, layer });
+      const svg = symbolToElement(symbol);
+      this.element.appendChild(svg);
+      this.element.style.gridTemplateColumns = "20px 1fr 20px";
+    } else {
+      this.element.style.gridTemplateColumns = "1fr 20px";
+    }
 
     const labelElement = document.createElement("div");
     labelElement.classList.add("map-layer-menu-item-label");

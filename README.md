@@ -129,6 +129,7 @@ A specialized menu item that's configured with the ID of a layer in the map styl
 | ------- | -------- | ------------- | --------------------------------------------------- |
 | label   | string | none          | The menu item label                                 |
 | layerId | string | none          | The ID of the layer to create the menu item for |
+| showSymbol | boolean | true | If true will attempt to render a symbol for the layer |
 
 #### Methods:
 

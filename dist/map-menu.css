@@ -58,12 +58,11 @@
 
 .map-layer-menu-item {
   display: grid;  
-  grid-template-columns: 20px 1fr 20px;
   align-items: center;
   gap: 16px;
 }
 
-.map-layer-menu-item-symbol {
+.map-menu-layer-item-symbol {
   width: 20px;
   height: 20px;
   border: 1px solid #ddd;
