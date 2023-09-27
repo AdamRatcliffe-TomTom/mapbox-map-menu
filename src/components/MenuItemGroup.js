@@ -1,3 +1,5 @@
+import insertChildAtIndex from "../functions/insertChildAtIndex";
+
 class MenuItemGroup {
   constructor() {
     if (new.target === MenuItemGroup) {
@@ -23,6 +25,14 @@ class MenuItemGroup {
 
     if (this.map) {
       this.itemContainer.appendChild(item.render(this.map));
+    }
+  }
+
+  insertItem(item, index) {
+    this.items.splice(index, 0, item);
+
+    if (this.map) {
+      insertChildAtIndex(this.itemContainer, item.render(this.map), index);
     }
   }
 

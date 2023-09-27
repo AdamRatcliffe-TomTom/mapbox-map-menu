@@ -1,7 +1,15 @@
-import Menu from "./Menu";
-import MenuItem from "./MenuItem";
-import MenuItemSeparator from "./MenuItemSeparator";
-import MenuSection from "./MenuSection";
-import LayerMenuItem from "./LayerMenuItem";
+import MenuControl from "./components/MenuControl";
+import Menu from "./components/Menu";
+import MenuItem from "./components/MenuItem";
+import MenuItemSeparator from "./components/MenuItemSeparator";
+import MenuSection from "./components/MenuSection";
+import LayerMenuItem from "./components/LayerMenuItem";
 
-export { Menu, MenuItem, MenuItemSeparator, MenuSection, LayerMenuItem };
+export {
+  MenuControl,
+  Menu,
+  MenuItem,
+  MenuItemSeparator,
+  MenuSection,
+  LayerMenuItem
+};

@@ -1,6 +1,6 @@
 # Map menu for Mapbox GL JS and Maplibre GL JS
 
-A simple menu control for use cases such as toggling the visibility of map layers.
+Menu component for use cases such as toggling the visibility of map layers.
 
 ## Usage
 
@@ -14,7 +14,7 @@ Add the control resources to your webpage:
 Example:
 
 ```javascript
-const menu = new mapmenu.Menu({ title: "Layers" });
+const menu = new mapmenu.MenuControl({ title: "Layers" });
 
 // Add a simple menu item
 const item1 = new mapmenu.MenuItem({
@@ -75,7 +75,7 @@ map.addControl(menu);
 
 ## API
 
-### mapmenu.Menu
+### mapmenu.MenuControl
 
 A menu control that implements the [IControl](https://docs.mapbox.com/mapbox-gl-js/api/markers/#icontrol) interface.
 
@@ -92,6 +92,10 @@ A menu control that implements the [IControl](https://docs.mapbox.com/mapbox-gl-
 `addItem(item: mapmenu.MenuItem)`
 
 Adds an item to the menu. Item is appended to the menu’s items.
+
+`insertItem(item: mapmenu.MenuItem, index: int)`
+
+Inserts an item in the menu at the specified index.
 
 `getItems()`
 
@@ -149,6 +153,10 @@ Sets the visibility of the layer associated with this menu item. The visibility 
 `addItem(item: mapmenu.MenuItem)`
 
 Adds an item to the section. Item is appended to the section's items.
+
+`insertItem(item: mapmenu.MenuItem, index: int)`
+
+Inserts an item in the section at the specified index.
 
 `getItems()`
 
