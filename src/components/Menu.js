@@ -1,4 +1,5 @@
 import MenuItemGroup from "./MenuItemGroup";
+import createElement from "../functions/createElement";
 
 class Menu extends MenuItemGroup {
   constructor({ title = "", width = 300, maxHeight = "auto" } = {}) {
@@ -13,7 +14,12 @@ class Menu extends MenuItemGroup {
   render(map) {
     this.map = map;
     this.map.on("idle", this.onMapReady);
-    this.element = document.createElement("div");
+    this.element = createElement({
+      styles: {
+        width: `${this.width}px`,
+        maxHeight: `${this.maxHeight}px`
+      }
+    });
 
     return this.element;
   }
@@ -22,8 +28,6 @@ class Menu extends MenuItemGroup {
     if (this.map.getStyle().layers.length > 0) {
       this.map.off("idle", this.onMapReady);
 
-      this.element.style.width = `${this.width}px`;
-      this.element.style.maxHeight = `${this.maxHeight}px`;
       this.element.classList.add("map-menu");
 
       if (this.title) {
@@ -35,9 +39,13 @@ class Menu extends MenuItemGroup {
   };
 
   renderTitle() {
-    const titleElement = document.createElement("div");
-    titleElement.textContent = this.title;
-    titleElement.classList.add("map-menu-title");
+    const titleElement = createElement({
+      className: "map-menu-title",
+      properties: {
+        textContent: this.title
+      }
+    });
+    // titleElement.textContent = this.title;
 
     return titleElement;
   }

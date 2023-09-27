@@ -1,5 +1,6 @@
 import LegendSymbol from "@watergis/legend-symbol";
 import MenuItem from "./MenuItem";
+import createElement from "../functions/createElement";
 import symbolToElement from "../functions/symbolToElement";
 
 class LayerMenuItem extends MenuItem {
@@ -21,8 +22,9 @@ class LayerMenuItem extends MenuItem {
       throw new Error(`Layer ${this.layerId} does not exist on map`);
     }
 
-    this.element = document.createElement("div");
-    this.element.classList.add("map-menu-item", "map-layer-menu-item");
+    this.element = createElement({
+      className: "map-menu-item map-layer-menu-item"
+    });
 
     if (this.showSymbol) {
       const symbol = LegendSymbol({ sprite, zoom, layer });
@@ -33,9 +35,12 @@ class LayerMenuItem extends MenuItem {
       this.element.style.gridTemplateColumns = "1fr 20px";
     }
 
-    const labelElement = document.createElement("div");
-    labelElement.classList.add("map-layer-menu-item-label");
-    labelElement.textContent = this.label;
+    const labelElement = createElement({
+      className: "map-layer-menu-item-label",
+      properties: {
+        textContent: this.label
+      }
+    });
     this.element.appendChild(labelElement);
 
     const checkbox = document.createElement("input");

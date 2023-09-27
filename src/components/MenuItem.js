@@ -1,3 +1,5 @@
+import createElement from "../functions/createElement";
+
 class MenuItem {
   constructor({ label, onClick } = {}) {
     this.label = label;
@@ -6,8 +8,9 @@ class MenuItem {
 
   render(map) {
     this.map = map;
-    this.element = document.createElement("div");
-    this.element.classList.add("map-menu-item");
+    this.element = createElement({
+      className: "map-menu-item"
+    });
 
     if (typeof this.label === "function") {
       this.element.appendChild(this.label());

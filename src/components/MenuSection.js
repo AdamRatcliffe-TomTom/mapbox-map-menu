@@ -1,4 +1,5 @@
 import MenuItemGroup from "./MenuItemGroup";
+import createElement from "../functions/createElement";
 
 class MenuSection extends MenuItemGroup {
   constructor({ title = "" } = {}) {
@@ -9,8 +10,9 @@ class MenuSection extends MenuItemGroup {
 
   render(map) {
     this.map = map;
-    this.element = document.createElement("div");
-    this.element.classList.add("map-menu-section");
+    this.element = createElement({
+      className: "map-menu-section"
+    });
 
     if (this.title) {
       this.element.appendChild(this.renderTitle());
@@ -22,9 +24,12 @@ class MenuSection extends MenuItemGroup {
   }
 
   renderTitle() {
-    const titleElement = document.createElement("div");
-    titleElement.textContent = this.title;
-    titleElement.classList.add("map-menu-section-title");
+    const titleElement = createElement({
+      className: "map-menu-section-title",
+      properties: {
+        textContent: this.title
+      }
+    });
 
     return titleElement;
   }

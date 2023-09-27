@@ -1,8 +1,10 @@
+import createElement from "../functions/createElement";
+
 class MenuItemSeparator {
   render() {
-    this.element = document.createElement("div");
-    this.element.classList.add("map-menu-item-separator");
-
+    this.element = createElement({
+      className: "map-menu-item-separator"
+    });
     return this.element;
   }
 

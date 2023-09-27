@@ -1,3 +1,4 @@
+import createElement from "../functions/createElement";
 import insertChildAtIndex from "../functions/insertChildAtIndex";
 
 class MenuItemGroup {
@@ -10,8 +11,9 @@ class MenuItemGroup {
   }
 
   renderItems() {
-    this.itemContainer = document.createElement("div");
-    this.itemContainer.className = "map-menu-items";
+    this.itemContainer = createElement({
+      className: "map-menu-items"
+    });
 
     this.items.forEach((item) => {
       this.itemContainer.appendChild(item.render(this.map));
