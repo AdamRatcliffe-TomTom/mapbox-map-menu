@@ -17,7 +17,6 @@ class Menu extends MenuItemGroup {
     this.element = createElement({
       className: "map-menu",
       style: {
-        display: "none",
         width: `${this.width}px`,
         ...this.style
       }
@@ -36,7 +35,9 @@ class Menu extends MenuItemGroup {
 
       this.element.appendChild(this.renderItems());
 
-      this.element.style.display = "block";
+      if (!this.element.classList.contains("map-context-menu")) {
+        this.show();
+      }
     }
   };
 
@@ -50,6 +51,16 @@ class Menu extends MenuItemGroup {
 
     return titleElement;
   }
+
+  show = () => {
+    this.element.style.opacity = 1;
+    this.element.style.pointerEvents = "all";
+  };
+
+  hide = () => {
+    this.element.style.opacity = 0;
+    this.element.style.pointerEvents = "none";
+  };
 
   remove() {
     this.map.off("idle", this.onMapReady);

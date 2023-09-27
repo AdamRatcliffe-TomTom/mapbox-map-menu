@@ -128,6 +128,14 @@ Inserts an item in the menu at the specified index.
 
 Returns all items added to the menu.
 
+`show()`
+
+Shows the menu.
+
+`hide()`
+
+Hides the menu.
+
 
 ### mapmenu.MenuItem
 

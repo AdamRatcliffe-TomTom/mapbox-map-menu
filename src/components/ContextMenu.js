@@ -42,14 +42,6 @@ class ContextMenu extends Menu {
     this.show();
   };
 
-  show = () => {
-    this.element.style.display = "block";
-  };
-
-  hide = () => {
-    this.element.style.display = "none";
-  };
-
   setPosition = (point) => {
     this.element.style.left = `${point.x}px`;
     this.element.style.top = `${point.y}px`;

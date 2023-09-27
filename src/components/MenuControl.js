@@ -9,7 +9,7 @@ class MenuControl extends Menu {
   }
 
   onRemove() {
-    this.element.parentNode.removeChild(this.element);
+    this.remove();
     this.map = undefined;
   }
 

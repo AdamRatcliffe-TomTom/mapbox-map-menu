@@ -25,7 +25,7 @@ class MenuItemGroup {
   addItem(item) {
     this.items.push(item);
 
-    if (this.map) {
+    if (this.map && this.itemContainer) {
       this.itemContainer.appendChild(item.render(this.map));
     }
   }
@@ -33,7 +33,7 @@ class MenuItemGroup {
   insertItem(item, index) {
     this.items.splice(index, 0, item);
 
-    if (this.map) {
+    if (this.map && this.itemContainer) {
       insertChildAtIndex(this.itemContainer, item.render(this.map), index);
     }
   }
