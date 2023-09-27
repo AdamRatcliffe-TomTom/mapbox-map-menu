@@ -39,7 +39,8 @@ class LayerMenuItem extends MenuItem {
     const labelElement = createElement({
       className: "map-layer-menu-item-label",
       properties: {
-        textContent: this.label
+        textContent: this.label,
+        title: this.label
       }
     });
     this.element.appendChild(labelElement);

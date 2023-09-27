@@ -2,7 +2,7 @@ import MenuItemGroup from "./MenuItemGroup";
 import createElement from "../functions/createElement";
 
 class Menu extends MenuItemGroup {
-  constructor({ title = "", width = 300, style = {} } = {}) {
+  constructor({ title = "", width = 240, style = {} } = {}) {
     super();
 
     this.title = title;
