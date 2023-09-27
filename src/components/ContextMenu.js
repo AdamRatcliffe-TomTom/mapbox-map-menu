@@ -43,8 +43,33 @@ class ContextMenu extends Menu {
   };
 
   setPosition = (point) => {
-    this.element.style.left = `${point.x}px`;
-    this.element.style.top = `${point.y}px`;
+    const mapContainer = this.map.getContainer();
+    const { offsetWidth: menuWidth, offsetHeight: menuHeight } = this.element;
+    const { offsetWidth: mapWidth, offsetHeight: mapHeight } = mapContainer;
+
+    if (point.x + menuWidth < mapWidth) {
+      Object.assign(this.element.style, {
+        left: `${point.x}px`,
+        right: "auto"
+      });
+    } else {
+      Object.assign(this.element.style, {
+        right: `${mapWidth - point.x}px`,
+        left: "auto"
+      });
+    }
+
+    if (point.y + menuHeight < mapHeight) {
+      Object.assign(this.element.style, {
+        top: `${point.y}px`,
+        bottom: "auto"
+      });
+    } else {
+      Object.assign(this.element.style, {
+        bottom: `${mapHeight - point.y}px`,
+        top: "auto"
+      });
+    }
   };
 
   remove() {
