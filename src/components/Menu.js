@@ -3,12 +3,13 @@ import MenuContext from "./MenuContext";
 import createElement from "../functions/createElement";
 
 class Menu extends MenuItemGroup {
-  constructor({ title = "", width = 240, style = {} } = {}) {
+  constructor({ title = "", width = 240, visible = true, style = {} } = {}) {
     super();
 
     this.title = title;
     this.width = width;
     this.style = style;
+    this.visible = visible;
     this.items = [];
     this.context = new MenuContext();
   }
@@ -43,10 +44,9 @@ class Menu extends MenuItemGroup {
 
   onStyleReady() {
     map.off("idle", this.onMapReady);
-
     this.element.appendChild(this.renderItems());
 
-    if (!this.element.classList.contains("map-context-menu")) {
+    if (this.visible && !this.element.classList.contains("map-context-menu")) {
       this.show();
     }
   }
@@ -63,15 +63,15 @@ class Menu extends MenuItemGroup {
     return this.titleElement;
   }
 
-  show = () => {
-    this.element.style.opacity = 1;
-    this.element.style.pointerEvents = "all";
-  };
+  show() {
+    this.element.style.display = "flex";
+    this.visible = true;
+  }
 
-  hide = () => {
-    this.element.style.opacity = 0;
-    this.element.style.pointerEvents = "none";
-  };
+  hide() {
+    this.element.style.display = "none";
+    this.visible = false;
+  }
 
   remove() {
     this.context.map.off("idle", this.onMapReady);

@@ -13,9 +13,12 @@ class MenuControl extends Menu {
   onAdd(map) {
     this.render(map);
 
+    this.container.appendChild(this.element);
+    this.legendButtonElement = this.renderLegendButton();
+    this.container.appendChild(this.legendButtonElement);
+
     this.element.classList.add("map-menu-control");
     this.element.appendChild(this.renderMinimizeButton());
-    this.container.appendChild(this.element);
 
     return this.container;
   }
@@ -28,8 +31,41 @@ class MenuControl extends Menu {
         title: "Minimize"
       }
     });
+    buttonElement.addEventListener("click", this.hide);
     return buttonElement;
   }
+
+  renderLegendButton() {
+    const wrapper = createElement({
+      className: "mapboxgl-ctrl-group"
+    });
+
+    const buttonElement = createElement({
+      tagName: "button",
+      className: "mapboxgl-ctrl-menu"
+    });
+    buttonElement.addEventListener("click", this.show);
+
+    const iconElement = createElement({
+      tagName: "span",
+      className: "mapboxgl-ctrl-icon"
+    });
+    buttonElement.appendChild(iconElement);
+
+    wrapper.appendChild(buttonElement);
+
+    return wrapper;
+  }
+
+  show = () => {
+    super.show();
+    this.legendButtonElement.style.display = "none";
+  };
+
+  hide = () => {
+    super.hide();
+    this.legendButtonElement.style.display = "block";
+  };
 
   onRemove() {
     this.remove();

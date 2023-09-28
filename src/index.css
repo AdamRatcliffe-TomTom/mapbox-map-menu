@@ -2,14 +2,11 @@
 
 .map-menu {
   box-sizing: border-box;
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 4px;
   box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.15);  
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
 }
 
 .map-menu-title {
@@ -28,6 +25,8 @@
 }
 
 .map-menu-items {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   flex: 1;
   overflow-y: auto;
 }
@@ -120,6 +119,10 @@
 
 .map-menu-control-minimize-button:hover {
   background-color: #f7f7f7;
+}
+
+.mapboxgl-ctrl button.mapboxgl-ctrl-menu .mapboxgl-ctrl-icon {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMyA1LjVIM0MyLjg2NzM5IDUuNSAyLjc0MDIxIDUuNDQ3MzIgMi42NDY0NSA1LjM1MzU1QzIuNTUyNjggNS4yNTk3OSAyLjUgNS4xMzI2MSAyLjUgNUMyLjUgNC44NjczOSAyLjU1MjY4IDQuNzQwMjEgMi42NDY0NSA0LjY0NjQ1QzIuNzQwMjEgNC41NTI2OCAyLjg2NzM5IDQuNSAzIDQuNUgxM0MxMy4xMzI2IDQuNSAxMy4yNTk4IDQuNTUyNjggMTMuMzUzNiA0LjY0NjQ1QzEzLjQ0NzMgNC43NDAyMSAxMy41IDQuODY3MzkgMTMuNSA1QzEzLjUgNS4xMzI2MSAxMy40NDczIDUuMjU5NzkgMTMuMzUzNiA1LjM1MzU1QzEzLjI1OTggNS40NDczMiAxMy4xMzI2IDUuNSAxMyA1LjVaTTEzIDguNUgzQzIuODY3MzkgOC41IDIuNzQwMjEgOC40NDczMiAyLjY0NjQ1IDguMzUzNTVDMi41NTI2OCA4LjI1OTc5IDIuNSA4LjEzMjYxIDIuNSA4QzIuNSA3Ljg2NzM5IDIuNTUyNjggNy43NDAyMSAyLjY0NjQ1IDcuNjQ2NDVDMi43NDAyMSA3LjU1MjY4IDIuODY3MzkgNy41IDMgNy41SDEzQzEzLjEzMjYgNy41IDEzLjI1OTggNy41NTI2OCAxMy4zNTM2IDcuNjQ2NDVDMTMuNDQ3MyA3Ljc0MDIxIDEzLjUgNy44NjczOSAxMy41IDhDMTMuNSA4LjEzMjYxIDEzLjQ0NzMgOC4yNTk3OSAxMy4zNTM2IDguMzUzNTVDMTMuMjU5OCA4LjQ0NzMyIDEzLjEzMjYgOC41IDEzIDguNVpNMyAxMS41SDEzQzEzLjEzMjYgMTEuNSAxMy4yNTk4IDExLjQ0NzMgMTMuMzUzNiAxMS4zNTM2QzEzLjQ0NzMgMTEuMjU5OCAxMy41IDExLjEzMjYgMTMuNSAxMUMxMy41IDEwLjg2NzQgMTMuNDQ3MyAxMC43NDAyIDEzLjM1MzYgMTAuNjQ2NEMxMy4yNTk4IDEwLjU1MjcgMTMuMTMyNiAxMC41IDEzIDEwLjVIM0MyLjg2NzM5IDEwLjUgMi43NDAyMSAxMC41NTI3IDIuNjQ2NDUgMTAuNjQ2NEMyLjU1MjY4IDEwLjc0MDIgMi41IDEwLjg2NzQgMi41IDExQzIuNSAxMS4xMzI2IDIuNTUyNjggMTEuMjU5OCAyLjY0NjQ1IDExLjM1MzZDMi43NDAyMSAxMS40NDczIDIuODY3MzkgMTEuNSAzIDExLjVaIiBmaWxsPSIjNzI3Qzg1Ii8+Cjwvc3ZnPgo=);
 }
 
 /* Legend Control */
