@@ -30,8 +30,6 @@ class LegendControl extends MenuControl {
     const numLayers = style.layers.length;
 
     const titleElement = super.renderTitle();
-    // element.appendChild(titleElement);
-
     const subtitleElement = createElement({
       className: "map-menu-subtitle",
       properties: {
