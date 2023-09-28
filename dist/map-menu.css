@@ -95,16 +95,36 @@
   color:#a9afb5;
 }
 
-/* Context Menu */
+/* Menu Control */
 
-.map-context-menu {
+.map-menu-control {
+  position: relative;
+}
+
+.map-menu-control-minimize-button {
   position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  background-position: center;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IlNpemU9MTYsIExpbmUvRmlsbD1PZmYiPgo8cGF0aCBpZD0iQ29sb3VyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTIgOEMyIDcuNTg1NzkgMi4zMzU3OSA3LjI1IDIuNzUgNy4yNUgxMy4yNUMxMy42NjQyIDcuMjUgMTQgNy41ODU3OSAxNCA4QzE0IDguNDE0MjEgMTMuNjY0MiA4Ljc1IDEzLjI1IDguNzVIMi43NUMyLjMzNTc5IDguNzUgMiA4LjQxNDIxIDIgOFoiIGZpbGw9IiNhOWFmYjUiLz4KPC9nPgo8L3N2Zz4K);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  cursor: pointer;
+}
+
+.map-menu-control-minimize-button:hover {
+  background-color: #f7f7f7;
 }
 
 /* Legend Control */
 
 .map-menu-legend-filter {
-  padding: 8px 16px;
+  padding: 8px 16px 0;
 }
 
 .map-menu-legend-filter input {
@@ -112,4 +132,10 @@
   padding: 4px;
   border: 1px solid #ddd;
   border-radius: 2px;
+}
+
+/* Context Menu */
+
+.map-context-menu {
+  position: absolute;
 }
