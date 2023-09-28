@@ -32,7 +32,7 @@ export default function symbolToElement(symbol) {
           "http://www.w3.org/2000/svg",
           "svg"
         );
-        svg.style.cssText = "height: 17px;";
+        svg.style.cssText = "height: 18px;";
         svg.setAttributeNS(null, "version", "1.1");
         Object.keys(symbol.attributes).forEach((k) => {
           svg.setAttribute(k, symbol.attributes[k]);

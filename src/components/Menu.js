@@ -24,6 +24,10 @@ class Menu extends MenuItemGroup {
       }
     });
 
+    if (this.title) {
+      this.element.appendChild(this.renderTitle());
+    }
+
     map.on("idle", this.onMapReady);
 
     return this.element;
@@ -33,22 +37,22 @@ class Menu extends MenuItemGroup {
     const { map } = this.context;
 
     if (map.getStyle().layers.length > 0) {
-      map.off("idle", this.onMapReady);
-
-      if (this.title) {
-        this.element.appendChild(this.renderTitle());
-      }
-
-      this.element.appendChild(this.renderItems());
-
-      if (!this.element.classList.contains("map-context-menu")) {
-        this.show();
-      }
+      this.onStyleReady();
     }
   };
 
+  onStyleReady() {
+    map.off("idle", this.onMapReady);
+
+    this.element.appendChild(this.renderItems());
+
+    if (!this.element.classList.contains("map-context-menu")) {
+      this.show();
+    }
+  }
+
   renderTitle() {
-    const titleElement = createElement({
+    this.titleElement = createElement({
       className: "map-menu-title",
       properties: {
         textContent:
@@ -56,7 +60,7 @@ class Menu extends MenuItemGroup {
       }
     });
 
-    return titleElement;
+    return this.titleElement;
   }
 
   show = () => {

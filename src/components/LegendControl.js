@@ -4,7 +4,16 @@ import createElement from "../functions/createElement";
 
 class LegendControl extends MenuControl {
   constructor(options = {}) {
-    super({ title: "Legend", style: { maxHeight: "350px" }, ...options });
+    super({ title: "Legend", style: { height: "350px" }, ...options });
+  }
+
+  render(map) {
+    super.render(map);
+
+    this.element.classList.add("map-menu-legend");
+
+    const filterElement = this.renderFilter();
+    this.titleElement.after(filterElement);
   }
 
   renderItems() {
@@ -24,22 +33,42 @@ class LegendControl extends MenuControl {
     return itemContainer;
   }
 
-  renderTitle() {
+  onStyleReady = () => {
+    super.onStyleReady();
+
     const map = this.context.map;
     const style = map.getStyle();
     const numLayers = style.layers.length;
-
-    const titleElement = super.renderTitle();
     const subtitleElement = createElement({
       className: "map-menu-subtitle",
       properties: {
         textContent: `${numLayers} layers`
       }
     });
-    titleElement.appendChild(subtitleElement);
+    this.titleElement.appendChild(subtitleElement);
+  };
 
-    return titleElement;
+  renderFilter() {
+    const filterElement = createElement({
+      className: "map-menu-legend-filter"
+    });
+    const inputElement = createElement({
+      tagName: "input",
+      properties: {
+        type: "text",
+        placeholder: "Filter"
+      }
+    });
+    inputElement.addEventListener("input", this.filterItems);
+    filterElement.appendChild(inputElement);
+
+    return filterElement;
   }
+
+  filterItems = (event) => {
+    const { value } = event.target;
+    this.setFilter(value);
+  };
 
   getDefaultPosition() {
     return "bottom-left";

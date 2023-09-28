@@ -8,7 +8,7 @@ class ContextMenu extends Menu {
   constructor(options) {
     super({ ...defaultOptions, ...options });
 
-    this.boundHide = this.hide.bind();
+    this.hide = this.hide.bind();
   }
 
   render(map) {
@@ -28,7 +28,7 @@ class ContextMenu extends Menu {
     map.on("contextmenu", this.handleContextMenu);
     map.on("move", this.hide);
 
-    window.addEventListener("click", this.boundHide);
+    window.addEventListener("click", this.hide);
   }
 
   removeEventListeners() {
@@ -37,7 +37,7 @@ class ContextMenu extends Menu {
     map.off("contextmenu", this.handleContextMenu);
     map.off("move", this.hide);
 
-    window.removeEventListener("click", this.boundHide);
+    window.removeEventListener("click", this.hide);
   }
 
   handleContextMenu = (event) => {

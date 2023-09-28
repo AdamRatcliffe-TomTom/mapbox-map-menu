@@ -100,3 +100,16 @@
 .map-context-menu {
   position: absolute;
 }
+
+/* Legend Control */
+
+.map-menu-legend-filter {
+  padding: 8px 16px;
+}
+
+.map-menu-legend-filter input {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}

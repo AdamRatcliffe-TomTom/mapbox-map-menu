@@ -134,6 +134,10 @@ Inserts an item in the menu at the specified index.
 
 Returns all items added to the menu.
 
+`removeAllItems()`
+
+Removes all items added to the menu.
+
 `show()`
 
 Shows the menu.
@@ -207,6 +211,10 @@ Inserts an item in the section at the specified index.
 
 Returns all items added to the section.
 
+`removeAllItems()`
+
+Removes all items added to the section.
+
 `remove()`
 
 Removes the section from the menu.
@@ -250,6 +258,10 @@ Inserts an item in the legend at the specified index.
 `getItems()`
 
 Returns all items added to the legend.
+
+`removeAllItems()`
+
+Removes all items added to the legend.
 
 `show()`
 
