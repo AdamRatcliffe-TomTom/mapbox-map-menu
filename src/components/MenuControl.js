@@ -14,7 +14,10 @@ class MenuControl extends Menu {
   renderMinimizeButton() {
     const buttonElement = createElement({
       tagName: "button",
-      className: "map-menu-control-minimize-button"
+      className: "map-menu-control-minimize-button",
+      properties: {
+        title: "Minimize"
+      }
     });
     return buttonElement;
   }

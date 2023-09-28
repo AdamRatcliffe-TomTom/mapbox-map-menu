@@ -111,9 +111,9 @@
   background-position: center;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IlNpemU9MTYsIExpbmUvRmlsbD1PZmYiPgo8cGF0aCBpZD0iQ29sb3VyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTIgOEMyIDcuNTg1NzkgMi4zMzU3OSA3LjI1IDIuNzUgNy4yNUgxMy4yNUMxMy42NjQyIDcuMjUgMTQgNy41ODU3OSAxNCA4QzE0IDguNDE0MjEgMTMuNjY0MiA4Ljc1IDEzLjI1IDguNzVIMi43NUMyLjMzNTc5IDguNzUgMiA4LjQxNDIxIDIgOFoiIGZpbGw9IiNhOWFmYjUiLz4KPC9nPgo8L3N2Zz4K);
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 2px;
   -webkit-appearance: none;
-  -webkit-border-radius: 0;
+  -webkit-border-radius: 2px;
   cursor: pointer;
 }
 
