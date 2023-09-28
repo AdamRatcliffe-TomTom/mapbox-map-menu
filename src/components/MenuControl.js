@@ -13,12 +13,12 @@ class MenuControl extends Menu {
   onAdd(map) {
     this.render(map);
 
-    this.container.appendChild(this.el);
-    this.legendButtonEl = this.renderLegendButton();
-    this.container.appendChild(this.legendButtonEl);
-
     this.el.classList.add("map-menu-control");
     this.el.appendChild(this.renderMinimizeButton());
+
+    this.legendButtonEl = this.renderLegendButton();
+    this.container.appendChild(this.legendButtonEl);
+    this.container.appendChild(this.el);
 
     return this.container;
   }

@@ -118,6 +118,7 @@ A menu control that implements the [IControl](https://docs.mapbox.com/mapbox-gl-
 | --------- | ------ | ------------- | ---------------------------------------- |
 | title     | string \| Function | “”            | The menu title                           |
 | width     | int    | 240           | The width of the menu in pixels          |
+| visible   | boolean | true | If true the menu will be shown when the map style is availble, if false the menu button will be shown |
 | style | Object    | none          | Style properties to be applied to the menu |
 
 #### Methods
@@ -243,6 +244,7 @@ A menu control that displays a legend entry for each layer on the map. *A work i
 | --------- | ------ | ------------- | ---------------------------------------- |
 | title     | string | “”            | The legend title                           |
 | width     | int    | 240           | The width of the legend in pixels          |
+| visible   | boolean | true | If true the menu will be shown when the map style is availble, if false the menu button will be shown |
 | style | Object    | none          | Style properties to be applied to the legend |
 
 #### Methods
