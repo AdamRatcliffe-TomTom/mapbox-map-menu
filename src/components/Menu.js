@@ -12,6 +12,9 @@ class Menu extends MenuItemGroup {
     this.visible = visible;
     this.items = [];
     this.context = new MenuContext();
+
+    this.hide = this.hide.bind(this);
+    this.show = this.show.bind(this);
   }
 
   render(map) {
