@@ -12,8 +12,10 @@ class LayerMenuItem extends MenuItem {
     this.showSymbol = showSymbol;
   }
 
-  render(map) {
-    this.map = map;
+  render(context) {
+    this.context = context;
+
+    const { map } = context;
     const { sprite, layers } = map.getStyle();
     const zoom = map.getZoom();
     const layer = layers.find((layer) => layer.id === this.layerId);
@@ -65,7 +67,7 @@ class LayerMenuItem extends MenuItem {
   };
 
   setLayerVisibility(visibility) {
-    this.map.setLayoutProperty(this.layerId, "visibility", visibility);
+    this.context.map.setLayoutProperty(this.layerId, "visibility", visibility);
   }
 }
 

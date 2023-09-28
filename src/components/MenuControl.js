@@ -10,7 +10,7 @@ class MenuControl extends Menu {
 
   onRemove() {
     this.remove();
-    this.map = undefined;
+    this.context.map = undefined;
   }
 
   getDefaultPosition() {

@@ -1,4 +1,5 @@
 import MenuItemGroup from "./MenuItemGroup";
+import MenuContext from "./MenuContext";
 import createElement from "../functions/createElement";
 
 class Menu extends MenuItemGroup {
@@ -9,11 +10,12 @@ class Menu extends MenuItemGroup {
     this.width = width;
     this.style = style;
     this.items = [];
+    this.context = new MenuContext();
   }
 
   render(map) {
-    this.map = map;
-    this.map.on("idle", this.onMapReady);
+    this.context.map = map;
+
     this.element = createElement({
       className: "map-menu",
       style: {
@@ -22,12 +24,16 @@ class Menu extends MenuItemGroup {
       }
     });
 
+    map.on("idle", this.onMapReady);
+
     return this.element;
   }
 
   onMapReady = () => {
-    if (this.map.getStyle().layers.length > 0) {
-      this.map.off("idle", this.onMapReady);
+    const { map } = this.context;
+
+    if (map.getStyle().layers.length > 0) {
+      map.off("idle", this.onMapReady);
 
       if (this.title) {
         this.element.appendChild(this.renderTitle());
@@ -63,7 +69,7 @@ class Menu extends MenuItemGroup {
   };
 
   remove() {
-    this.map.off("idle", this.onMapReady);
+    this.context.map.off("idle", this.onMapReady);
   }
 }
 

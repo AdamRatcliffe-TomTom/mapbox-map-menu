@@ -1,14 +1,15 @@
 import createElement from "../functions/createElement";
 
 class MenuItem {
-  constructor({ label, onClick, style = {} } = {}) {
+  constructor({ label, onClick = () => {}, style = {} } = {}) {
     this.label = label;
     this.onClick = onClick;
     this.style = style;
   }
 
-  render(map) {
-    this.map = map;
+  render(context) {
+    this.context = context;
+
     this.element = createElement({
       className: "map-menu-item",
       style: this.style
@@ -21,7 +22,9 @@ class MenuItem {
     }
 
     if (typeof this.onClick === "function") {
-      this.element.addEventListener("click", this.onClick);
+      this.element.addEventListener("click", () =>
+        this.onClick(this.context.lastContextMenuEvent)
+      );
     }
 
     return this.element;

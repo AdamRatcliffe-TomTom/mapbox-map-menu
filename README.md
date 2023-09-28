@@ -78,15 +78,11 @@ map.addControl(menu);
 ```javascript
 const contextMenu = new mapmenu.ContextMenu();
 
-const item1 = new mapmenu.MenuItem({
-  label: "Add origin"
+const centerItem = new mapmenu.MenuItem({
+  label: "Center map here",
+  onClick: (event) => map.setCenter(event.lngLat)
 });
-contextMenu.addItem(item1);
-
-const item2 = new mapmenu.MenuItem({
-  label: "Add destination"
-});
-contextMenu.addItem(item2);
+contextMenu.addItem(centerItem);
 
 contextMenu.addToMap(map);
 ```
@@ -261,7 +257,3 @@ Shows the menu.
 `hide()`
 
 Hides the menu.
-
-`setPosition(point: Point)`
-
-Sets the menu's position.

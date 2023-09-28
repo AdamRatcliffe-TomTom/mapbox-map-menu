@@ -23,6 +23,8 @@ class ContextMenu extends Menu {
   }
 
   addEventListeners() {
+    const { map } = this.context;
+
     map.on("contextmenu", this.handleContextMenu);
     map.on("move", this.hide);
 
@@ -30,6 +32,8 @@ class ContextMenu extends Menu {
   }
 
   removeEventListeners() {
+    const { map } = this.context;
+
     map.off("contextmenu", this.handleContextMenu);
     map.off("move", this.hide);
 
@@ -37,13 +41,15 @@ class ContextMenu extends Menu {
   }
 
   handleContextMenu = (event) => {
+    this.context.lastContextMenuEvent = event;
+
     const { point } = event;
     this.setPosition(point);
     this.show();
   };
 
   setPosition = (point) => {
-    const mapContainer = this.map.getContainer();
+    const mapContainer = this.context.map.getContainer();
     const { offsetWidth: menuWidth, offsetHeight: menuHeight } = this.element;
     const { offsetWidth: mapWidth, offsetHeight: mapHeight } = mapContainer;
 

@@ -9,8 +9,8 @@ class MenuSection extends MenuItemGroup {
     this.style = style;
   }
 
-  render(map) {
-    this.map = map;
+  render(context) {
+    this.context = context;
     this.element = createElement({
       className: "map-menu-section",
       style: this.style

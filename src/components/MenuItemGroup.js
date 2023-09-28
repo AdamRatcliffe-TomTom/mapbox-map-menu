@@ -16,7 +16,7 @@ class MenuItemGroup {
     });
 
     this.items.forEach((item) => {
-      this.itemContainer.appendChild(item.render(this.map));
+      this.itemContainer.appendChild(item.render(this.context));
     });
 
     return this.itemContainer;
@@ -25,16 +25,16 @@ class MenuItemGroup {
   addItem(item) {
     this.items.push(item);
 
-    if (this.map && this.itemContainer) {
-      this.itemContainer.appendChild(item.render(this.map));
+    if (this.context?.map && this.itemContainer) {
+      this.itemContainer.appendChild(item.render(this.context));
     }
   }
 
   insertItem(item, index) {
     this.items.splice(index, 0, item);
 
-    if (this.map && this.itemContainer) {
-      insertChildAtIndex(this.itemContainer, item.render(this.map), index);
+    if (this.context?.map && this.itemContainer) {
+      insertChildAtIndex(this.itemContainer, item.render(this.context), index);
     }
   }
 
