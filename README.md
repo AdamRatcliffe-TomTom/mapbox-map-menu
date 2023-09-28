@@ -2,7 +2,7 @@
 
 Menu control and context menu components with support for rendering map legend entries.
 
-## Usage
+## Setup
 
 Add the control resources to your webpage:
 
@@ -10,6 +10,8 @@ Add the control resources to your webpage:
 <link rel="stylesheet" type="text/css" href="./map-menu.css" />
 <script src="./map-menu.js"></script>
 ```
+
+## Examples
 
 ### Menu control example
 
@@ -73,6 +75,13 @@ menu.addItem(item5);
 map.addControl(menu);
 ```
 
+### Legend control example
+
+```javascript
+const legend = new mapmenu.LegendControl();
+map.addControl(legend);
+```
+
 ### Context menu example
 
 ```javascript
@@ -96,6 +105,7 @@ contextMenu.addToMap(map);
 - [mapmenu.LayerMenuItem](#mapmenulayermenuitem)
 - [mapmenu.MenuSection](#mapmenumenusection)
 - [mapmenu.MenuItemSeparator](#mapmenumenuitemseparator)
+- [mapmenu.LegendControl](#mapmenulegendcontrol)
 - [mapmenu.ContextMenu](#mapmenucontextmenu)
 
 ### mapmenu.MenuControl
@@ -214,6 +224,40 @@ Removes the section from the menu.
 `remove()`
 
 Removes the menu item separator from the menu.
+
+### mapmenu.LegendControl
+
+A menu control that displays a legend entry for each layer on the map. *A work in progress*.
+
+#### Options
+
+| Name      | Type   | Default value | Description                              |
+| --------- | ------ | ------------- | ---------------------------------------- |
+| title     | string | “”            | The legend title                           |
+| width     | int    | 240           | The width of the legend in pixels          |
+| style | Object    | none          | Style properties to be applied to the legend |
+
+#### Methods
+
+`addItem(item: mapmenu.MenuItem)`
+
+Adds an item to the legend. Item is appended to the legend’s items.
+
+`insertItem(item: mapmenu.MenuItem, index: int)`
+
+Inserts an item in the legend at the specified index.
+
+`getItems()`
+
+Returns all items added to the legend.
+
+`show()`
+
+Shows the legend.
+
+`hide()`
+
+Hides the legend.
 
 ### mapmenu.ContextMenu
 

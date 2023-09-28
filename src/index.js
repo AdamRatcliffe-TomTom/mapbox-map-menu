@@ -5,6 +5,7 @@ import MenuItemSeparator from "./components/MenuItemSeparator";
 import MenuSection from "./components/MenuSection";
 import LayerMenuItem from "./components/LayerMenuItem";
 import ContextMenu from "./components/ContextMenu";
+import LegendControl from "./components/LegendControl";
 
 export {
   MenuControl,
@@ -13,5 +14,6 @@ export {
   MenuItemSeparator,
   MenuSection,
   LayerMenuItem,
-  ContextMenu
+  ContextMenu,
+  LegendControl
 };
