@@ -89,7 +89,7 @@ const contextMenu = new mapmenu.ContextMenu();
 
 const centerItem = new mapmenu.MenuItem({
   label: "Center map here",
-  onClick: (event) => map.setCenter(event.lngLat)
+  onClick: (event) => map.easeTo({ center: event.lngLat })
 });
 contextMenu.addItem(centerItem);
 
