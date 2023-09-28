@@ -2,13 +2,22 @@ import Menu from "./Menu";
 import createElement from "../functions/createElement";
 
 class MenuControl extends Menu {
+  constructor(options) {
+    super(options);
+
+    this.container = createElement({
+      className: "mapboxgl-ctrl"
+    });
+  }
+
   onAdd(map) {
     this.render(map);
-    this.element.classList.add("map-menu-control", "mapboxgl-ctrl");
 
+    this.element.classList.add("map-menu-control");
     this.element.appendChild(this.renderMinimizeButton());
+    this.container.appendChild(this.element);
 
-    return this.element;
+    return this.container;
   }
 
   renderMinimizeButton() {

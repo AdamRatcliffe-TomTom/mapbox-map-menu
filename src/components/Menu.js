@@ -75,6 +75,7 @@ class Menu extends MenuItemGroup {
 
   remove() {
     this.context.map.off("idle", this.onMapReady);
+    this.context.map = undefined;
   }
 }
 
