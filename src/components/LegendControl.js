@@ -1,5 +1,6 @@
 import MenuControl from "./MenuControl";
 import LayerMenuItem from "./LayerMenuItem";
+import createElement from "../functions/createElement";
 
 class LegendControl extends MenuControl {
   constructor(options = {}) {
@@ -21,6 +22,25 @@ class LegendControl extends MenuControl {
     });
 
     return itemContainer;
+  }
+
+  renderTitle() {
+    const map = this.context.map;
+    const style = map.getStyle();
+    const numLayers = style.layers.length;
+
+    const titleElement = super.renderTitle();
+    // element.appendChild(titleElement);
+
+    const subtitleElement = createElement({
+      className: "map-menu-subtitle",
+      properties: {
+        textContent: `${numLayers} layers`
+      }
+    });
+    titleElement.appendChild(subtitleElement);
+
+    return titleElement;
   }
 
   getDefaultPosition() {

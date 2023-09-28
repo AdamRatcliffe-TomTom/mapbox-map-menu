@@ -16,8 +16,15 @@
   padding: 8px 16px;
   font-family: inherit;
   font-size: 1.2em;
-  font-weight: bold;
+  font-weight: 700;
   border-bottom: 1px solid #ededed;
+}
+
+.map-menu-subtitle {
+  font-size: 0.85em;
+  font-weight: 500;
+  line-height: 2em;
+  color: #727C85;
 }
 
 .map-menu-items {
@@ -84,7 +91,7 @@
 .map-menu-section-title {
   padding: 8px 16px 0;
   font-size: 1.1em;
-  font-weight: bold;
+  font-weight: 600;
   color:#a9afb5;
 }
 

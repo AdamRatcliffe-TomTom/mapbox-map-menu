@@ -29,7 +29,8 @@ class MenuSection extends MenuItemGroup {
     const titleElement = createElement({
       className: "map-menu-section-title",
       properties: {
-        textContent: this.title
+        textContent:
+          typeof this.title === "function" ? this.title() : this.title
       }
     });
 

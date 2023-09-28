@@ -116,7 +116,7 @@ A menu control that implements the [IControl](https://docs.mapbox.com/mapbox-gl-
 
 | Name      | Type   | Default value | Description                              |
 | --------- | ------ | ------------- | ---------------------------------------- |
-| title     | string | “”            | The menu title                           |
+| title     | string \| Function | “”            | The menu title                           |
 | width     | int    | 240           | The width of the menu in pixels          |
 | style | Object    | none          | Style properties to be applied to the menu |
 
@@ -190,7 +190,7 @@ Sets the visibility of the layer associated with this menu item. The visibility 
 
 | Name  | Type   | Default value | Description       |
 | ----- | ------ | ------------- | ----------------- |
-| title | string | “”            | The section title |
+| title | string \| Function | “”            | The section title |
 | style | Object    | none          | Style properties to be applied to the menu section |
 
 #### Methods
