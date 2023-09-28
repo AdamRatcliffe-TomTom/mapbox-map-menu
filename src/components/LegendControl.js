@@ -16,23 +16,6 @@ class LegendControl extends MenuControl {
     this.titleElement.after(filterElement);
   }
 
-  renderItems() {
-    const itemContainer = super.renderItems();
-
-    const map = this.context.map;
-    const style = map.getStyle();
-
-    style.layers.forEach(({ id }) => {
-      const item = new LayerMenuItem({
-        label: id,
-        layerId: id
-      });
-      this.addItem(item);
-    });
-
-    return itemContainer;
-  }
-
   onStyleReady = () => {
     super.onStyleReady();
 
@@ -46,6 +29,15 @@ class LegendControl extends MenuControl {
       }
     });
     this.titleElement.appendChild(subtitleElement);
+
+    // For each layer in the style add a legend item
+    style.layers.forEach(({ id }) => {
+      const item = new LayerMenuItem({
+        label: id,
+        layerId: id
+      });
+      this.addItem(item);
+    });
   };
 
   renderFilter() {
