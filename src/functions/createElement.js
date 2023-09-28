@@ -3,7 +3,8 @@ export default function createElement({
   attributes,
   properties,
   style,
-  className
+  className,
+  parent
 } = {}) {
   const element = document.createElement(tagName);
 
@@ -23,6 +24,10 @@ export default function createElement({
 
   if (className) {
     element.className = className;
+  }
+
+  if (parent) {
+    parent.appendChild(element);
   }
 
   return element;

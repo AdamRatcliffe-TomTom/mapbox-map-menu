@@ -21,13 +21,14 @@ class LegendControl extends MenuControl {
     const map = this.context.map;
     const style = map.getStyle();
     const numLayers = style.layers.length;
-    const subtitleEl = createElement({
+
+    createElement({
       className: "map-menu-subtitle",
       properties: {
         textContent: `${numLayers} layers`
-      }
+      },
+      parent: this.titleEl
     });
-    this.titleEl.appendChild(subtitleEl);
 
     // For each layer in the style add a legend item
     style.layers.forEach(({ id }) => {

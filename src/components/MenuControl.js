@@ -46,11 +46,11 @@ class MenuControl extends Menu {
     });
     buttonEL.addEventListener("click", this.show);
 
-    const iconEl = createElement({
+    createElement({
       tagName: "span",
-      className: "mapboxgl-ctrl-icon"
+      className: "mapboxgl-ctrl-icon",
+      parent: buttonEL
     });
-    buttonEL.appendChild(iconEl);
 
     wrapperEl.appendChild(buttonEL);
 

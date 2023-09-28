@@ -38,24 +38,24 @@ class LayerMenuItem extends MenuItem {
       this.el.style.gridTemplateColumns = "1fr 20px";
     }
 
-    const labelEl = createElement({
+    createElement({
       className: "map-layer-menu-item-label",
       properties: {
         textContent: this.label,
         title: this.label
-      }
+      },
+      parent: this.el
     });
-    this.el.appendChild(labelEl);
 
     const checkboxEl = createElement({
       tagName: "input",
       properties: {
         type: "checkbox",
         checked: true
-      }
+      },
+      parent: this.el
     });
     checkboxEl.addEventListener("click", this.handleToggle);
-    this.el.appendChild(checkboxEl);
 
     return this.el;
   }
