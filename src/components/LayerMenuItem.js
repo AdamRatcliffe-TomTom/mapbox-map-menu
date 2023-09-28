@@ -24,7 +24,7 @@ class LayerMenuItem extends MenuItem {
       throw new Error(`Layer ${this.layerId} does not exist on map`);
     }
 
-    this.element = createElement({
+    this.el = createElement({
       className: "map-menu-item map-layer-menu-item",
       style: this.style
     });
@@ -32,32 +32,32 @@ class LayerMenuItem extends MenuItem {
     if (this.showSymbol) {
       const symbol = LegendSymbol({ sprite, zoom, layer });
       const svg = symbolToElement(symbol);
-      this.element.appendChild(svg);
-      this.element.style.gridTemplateColumns = "20px 1fr 20px";
+      this.el.appendChild(svg);
+      this.el.style.gridTemplateColumns = "20px 1fr 20px";
     } else {
-      this.element.style.gridTemplateColumns = "1fr 20px";
+      this.el.style.gridTemplateColumns = "1fr 20px";
     }
 
-    const labelElement = createElement({
+    const labelEl = createElement({
       className: "map-layer-menu-item-label",
       properties: {
         textContent: this.label,
         title: this.label
       }
     });
-    this.element.appendChild(labelElement);
+    this.el.appendChild(labelEl);
 
-    const checkbox = createElement({
+    const checkboxEl = createElement({
       tagName: "input",
       properties: {
         type: "checkbox",
         checked: true
       }
     });
-    checkbox.addEventListener("click", this.handleToggle);
-    this.element.appendChild(checkbox);
+    checkboxEl.addEventListener("click", this.handleToggle);
+    this.el.appendChild(checkboxEl);
 
-    return this.element;
+    return this.el;
   }
 
   handleToggle = (event) => {

@@ -20,7 +20,7 @@ class Menu extends MenuItemGroup {
   render(map) {
     this.context.map = map;
 
-    this.element = createElement({
+    this.el = createElement({
       className: "map-menu",
       style: {
         width: `${this.width}px`,
@@ -29,12 +29,12 @@ class Menu extends MenuItemGroup {
     });
 
     if (this.title) {
-      this.element.appendChild(this.renderTitle());
+      this.el.appendChild(this.renderTitle());
     }
 
     map.on("idle", this.onMapReady);
 
-    return this.element;
+    return this.el;
   }
 
   onMapReady = () => {
@@ -47,15 +47,15 @@ class Menu extends MenuItemGroup {
 
   onStyleReady() {
     map.off("idle", this.onMapReady);
-    this.element.appendChild(this.renderItems());
+    this.el.appendChild(this.renderItems());
 
-    if (this.visible && !this.element.classList.contains("map-context-menu")) {
+    if (this.visible && !this.el.classList.contains("map-context-menu")) {
       this.show();
     }
   }
 
   renderTitle() {
-    this.titleElement = createElement({
+    this.titleEl = createElement({
       className: "map-menu-title",
       properties: {
         textContent:
@@ -63,16 +63,16 @@ class Menu extends MenuItemGroup {
       }
     });
 
-    return this.titleElement;
+    return this.titleEl;
   }
 
   show() {
-    this.element.style.display = "flex";
+    this.el.style.display = "flex";
     this.visible = true;
   }
 
   hide() {
-    this.element.style.display = "none";
+    this.el.style.display = "none";
     this.visible = false;
   }
 

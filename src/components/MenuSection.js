@@ -11,22 +11,22 @@ class MenuSection extends MenuItemGroup {
 
   render(context) {
     this.context = context;
-    this.element = createElement({
+    this.el = createElement({
       className: "map-menu-section",
       style: this.style
     });
 
     if (this.title) {
-      this.element.appendChild(this.renderTitle());
+      this.el.appendChild(this.renderTitle());
     }
 
-    this.element.appendChild(this.renderItems());
+    this.el.appendChild(this.renderItems());
 
-    return this.element;
+    return this.el;
   }
 
   renderTitle() {
-    const titleElement = createElement({
+    const titleEl = createElement({
       className: "map-menu-section-title",
       properties: {
         textContent:
@@ -34,12 +34,12 @@ class MenuSection extends MenuItemGroup {
       }
     });
 
-    return titleElement;
+    return titleEl;
   }
 
   remove() {
-    if (this.element && this.element.parentElement) {
-      this.element.parentElement.removeChild(this.element);
+    if (this.el && this.el.parentElement) {
+      this.el.parentElement.removeChild(this.el);
     }
   }
 }

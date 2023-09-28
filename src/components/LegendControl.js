@@ -10,10 +10,9 @@ class LegendControl extends MenuControl {
   render(map) {
     super.render(map);
 
-    this.element.classList.add("map-menu-legend");
+    this.el.classList.add("map-menu-legend");
 
-    const filterElement = this.renderFilter();
-    this.titleElement.after(filterElement);
+    this.titleEl.after(this.renderFilter());
   }
 
   onStyleReady = () => {
@@ -22,13 +21,13 @@ class LegendControl extends MenuControl {
     const map = this.context.map;
     const style = map.getStyle();
     const numLayers = style.layers.length;
-    const subtitleElement = createElement({
+    const subtitleEl = createElement({
       className: "map-menu-subtitle",
       properties: {
         textContent: `${numLayers} layers`
       }
     });
-    this.titleElement.appendChild(subtitleElement);
+    this.titleEl.appendChild(subtitleEl);
 
     // For each layer in the style add a legend item
     style.layers.forEach(({ id }) => {
@@ -41,20 +40,20 @@ class LegendControl extends MenuControl {
   };
 
   renderFilter() {
-    const filterElement = createElement({
+    const filterEl = createElement({
       className: "map-menu-legend-filter"
     });
-    const inputElement = createElement({
+    const inputEl = createElement({
       tagName: "input",
       properties: {
         type: "text",
         placeholder: "Filter"
       }
     });
-    inputElement.addEventListener("input", this.filterItems);
-    filterElement.appendChild(inputElement);
+    inputEl.addEventListener("input", this.filterItems);
+    filterEl.appendChild(inputEl);
 
-    return filterElement;
+    return filterEl;
   }
 
   filterItems = (event) => {

@@ -13,58 +13,58 @@ class MenuControl extends Menu {
   onAdd(map) {
     this.render(map);
 
-    this.container.appendChild(this.element);
-    this.legendButtonElement = this.renderLegendButton();
-    this.container.appendChild(this.legendButtonElement);
+    this.container.appendChild(this.el);
+    this.legendButtonEl = this.renderLegendButton();
+    this.container.appendChild(this.legendButtonEl);
 
-    this.element.classList.add("map-menu-control");
-    this.element.appendChild(this.renderMinimizeButton());
+    this.el.classList.add("map-menu-control");
+    this.el.appendChild(this.renderMinimizeButton());
 
     return this.container;
   }
 
   renderMinimizeButton() {
-    const buttonElement = createElement({
+    const buttonEL = createElement({
       tagName: "button",
       className: "map-menu-control-minimize-button",
       properties: {
         title: "Minimize"
       }
     });
-    buttonElement.addEventListener("click", this.hide);
-    return buttonElement;
+    buttonEL.addEventListener("click", this.hide);
+    return buttonEL;
   }
 
   renderLegendButton() {
-    const wrapper = createElement({
+    const wrapperEl = createElement({
       className: "mapboxgl-ctrl-group"
     });
 
-    const buttonElement = createElement({
+    const buttonEL = createElement({
       tagName: "button",
       className: "mapboxgl-ctrl-menu"
     });
-    buttonElement.addEventListener("click", this.show);
+    buttonEL.addEventListener("click", this.show);
 
-    const iconElement = createElement({
+    const iconEl = createElement({
       tagName: "span",
       className: "mapboxgl-ctrl-icon"
     });
-    buttonElement.appendChild(iconElement);
+    buttonEL.appendChild(iconEl);
 
-    wrapper.appendChild(buttonElement);
+    wrapperEl.appendChild(buttonEL);
 
-    return wrapper;
+    return wrapperEl;
   }
 
   show = () => {
     super.show();
-    this.legendButtonElement.style.display = "none";
+    this.legendButtonEl.style.display = "none";
   };
 
   hide = () => {
     super.hide();
-    this.legendButtonElement.style.display = "block";
+    this.legendButtonEl.style.display = "block";
   };
 
   onRemove() {

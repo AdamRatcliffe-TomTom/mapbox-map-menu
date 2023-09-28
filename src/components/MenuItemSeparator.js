@@ -6,16 +6,16 @@ class MenuItemSeparator {
   }
 
   render() {
-    this.element = createElement({
+    this.el = createElement({
       className: "map-menu-item-separator",
       style: this.style
     });
-    return this.element;
+    return this.el;
   }
 
   remove() {
-    if (this.element && this.element.parentElement) {
-      this.element.parentElement.removeChild(this.element);
+    if (this.el && this.el.parentElement) {
+      this.el.parentElement.removeChild(this.el);
     }
   }
 }

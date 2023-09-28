@@ -18,22 +18,22 @@ class MenuItemGroup {
       item.label.toLowerCase().includes(this.filterString)
     );
 
-    this.itemContainerElement.innerHTML = "";
+    this.itemContainerEl.innerHTML = "";
     this.filteredItems.forEach((item) => {
-      this.itemContainerElement.appendChild(item.render(this.context));
+      this.itemContainerEl.appendChild(item.render(this.context));
     });
   }
 
   renderItems() {
-    this.itemContainerElement = createElement({
+    this.itemContainerEl = createElement({
       className: "map-menu-items"
     });
 
     this.filteredItems.forEach((item) => {
-      this.itemContainerElement.appendChild(item.render(this.context));
+      this.itemContainerEl.appendChild(item.render(this.context));
     });
 
-    return this.itemContainerElement;
+    return this.itemContainerEl;
   }
 
   addItem(item) {
@@ -44,8 +44,8 @@ class MenuItemGroup {
       this.filteredItems.push(item);
     }
 
-    if (this.context?.map && this.itemContainerElement && shouldRenderItem) {
-      this.itemContainerElement.appendChild(item.render(this.context));
+    if (this.context?.map && this.itemContainerEl && shouldRenderItem) {
+      this.itemContainerEl.appendChild(item.render(this.context));
     }
   }
 
@@ -57,13 +57,9 @@ class MenuItemGroup {
       this.filteredItems.splice(index, 0, item);
     }
 
-    if (
-      this.context?.map &&
-      this.itemContainerElement &&
-      this.shouldRenderItem
-    ) {
+    if (this.context?.map && this.itemContainerEl && this.shouldRenderItem) {
       insertChildAtIndex(
-        this.itemContainerElement,
+        this.itemContainerEl,
         item.render(this.context),
         index
       );
@@ -80,7 +76,7 @@ class MenuItemGroup {
   removeAllItems() {
     this.items.length = 0;
     this.filteredItems.length = 0;
-    this.itemContainerElement.innerHTML = "";
+    this.itemContainerEl.innerHTML = "";
   }
 
   getItems() {

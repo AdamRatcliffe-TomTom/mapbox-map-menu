@@ -10,29 +10,29 @@ class MenuItem {
   render(context) {
     this.context = context;
 
-    this.element = createElement({
+    this.el = createElement({
       className: "map-menu-item",
       style: this.style
     });
 
     if (typeof this.label === "function") {
-      this.element.appendChild(this.label());
+      this.el.appendChild(this.label());
     } else {
-      this.element.textContent = this.label;
+      this.el.textContent = this.label;
     }
 
     if (typeof this.onClick === "function") {
-      this.element.addEventListener("click", () =>
+      this.el.addEventListener("click", () =>
         this.onClick(this.context.lastContextMenuEvent)
       );
     }
 
-    return this.element;
+    return this.el;
   }
 
   remove() {
-    if (this.element && this.element.parentElement) {
-      this.element.parentElement.removeChild(this.element);
+    if (this.el && this.el.parentElement) {
+      this.el.parentElement.removeChild(this.el);
     }
   }
 }

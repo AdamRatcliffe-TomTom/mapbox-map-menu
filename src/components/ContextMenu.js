@@ -13,12 +13,12 @@ class ContextMenu extends Menu {
 
   render(map) {
     super.render(map);
-    this.element.classList.add("map-context-menu");
+    this.el.classList.add("map-context-menu");
   }
 
   addToMap(map) {
     this.render(map);
-    map.getContainer().appendChild(this.element);
+    map.getContainer().appendChild(this.el);
     this.addEventListeners();
   }
 
@@ -50,28 +50,28 @@ class ContextMenu extends Menu {
 
   setPosition = (point) => {
     const mapContainer = this.context.map.getContainer();
-    const { offsetWidth: menuWidth, offsetHeight: menuHeight } = this.element;
+    const { offsetWidth: menuWidth, offsetHeight: menuHeight } = this.el;
     const { offsetWidth: mapWidth, offsetHeight: mapHeight } = mapContainer;
 
     if (point.x + menuWidth < mapWidth) {
-      Object.assign(this.element.style, {
+      Object.assign(this.el.style, {
         left: `${point.x}px`,
         right: "auto"
       });
     } else {
-      Object.assign(this.element.style, {
+      Object.assign(this.el.style, {
         right: `${mapWidth - point.x}px`,
         left: "auto"
       });
     }
 
     if (point.y + menuHeight < mapHeight) {
-      Object.assign(this.element.style, {
+      Object.assign(this.el.style, {
         top: `${point.y}px`,
         bottom: "auto"
       });
     } else {
-      Object.assign(this.element.style, {
+      Object.assign(this.el.style, {
         bottom: `${mapHeight - point.y}px`,
         top: "auto"
       });
@@ -81,8 +81,8 @@ class ContextMenu extends Menu {
   remove() {
     super.remove();
 
-    if (this.element && this.element.parentElement) {
-      this.element.parentElement.removeChild(this.element);
+    if (this.el && this.el.parentElement) {
+      this.el.parentElement.removeChild(this.el);
     }
 
     this.removeEventListeners();
