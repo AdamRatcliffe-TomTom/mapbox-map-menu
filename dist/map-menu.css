@@ -29,6 +29,7 @@
   border-bottom-right-radius: 4px;
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Menu Item */

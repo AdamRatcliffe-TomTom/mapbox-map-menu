@@ -147,7 +147,6 @@ Shows the menu.
 
 Hides the menu.
 
-
 ### mapmenu.MenuItem
 
 A menu item. The display label can either be provided as a string or Function to render the label element.

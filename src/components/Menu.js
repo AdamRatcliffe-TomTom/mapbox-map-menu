@@ -85,6 +85,10 @@ class Menu extends MenuItemGroup {
   remove() {
     super.remove();
 
+    if (this.el.parentElement) {
+      this.el.parentElement.removeChild(this.el);
+    }
+
     const { map } = this.context;
     map.off("idle", this.onMapIdle);
     map = undefined;
