@@ -22,18 +22,21 @@ class MenuItem {
     }
 
     if (typeof this.onClick === "function") {
-      this.el.addEventListener("click", () =>
-        this.onClick(this.context.lastContextMenuEvent)
-      );
+      this.el.addEventListener("click", this.handleItemClick);
     }
 
     return this.el;
   }
 
+  handleItemClick = () => {
+    this.onClick(this.context.lastContextMenuEvent);
+  };
+
   remove() {
     if (this.el && this.el.parentElement) {
       this.el.parentElement.removeChild(this.el);
     }
+    this.el.removeEventListener(this.handleItemClick);
   }
 }
 

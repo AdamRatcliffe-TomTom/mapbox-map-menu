@@ -47,7 +47,7 @@ class LayerMenuItem extends MenuItem {
       parent: this.el
     });
 
-    const checkboxEl = createElement({
+    this.checkboxEl = createElement({
       tagName: "input",
       properties: {
         type: "checkbox",
@@ -55,7 +55,7 @@ class LayerMenuItem extends MenuItem {
       },
       parent: this.el
     });
-    checkboxEl.addEventListener("click", this.handleToggle);
+    this.checkboxEl.addEventListener("click", this.handleToggle);
 
     return this.el;
   }
@@ -68,6 +68,11 @@ class LayerMenuItem extends MenuItem {
 
   setLayerVisibility(visibility) {
     this.context.map.setLayoutProperty(this.layerId, "visibility", visibility);
+  }
+
+  remove() {
+    super.remove();
+    this.checkboxEl.removeEventListener("click", this.handleToggle);
   }
 }
 

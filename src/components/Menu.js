@@ -32,6 +32,8 @@ class Menu extends MenuItemGroup {
       this.el.appendChild(this.renderTitle());
     }
 
+    // Don't render the menu items and show the menu until the map's style
+    // is available
     map.on("idle", this.onMapIdle);
 
     return this.el;
