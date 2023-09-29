@@ -32,12 +32,12 @@ class Menu extends MenuItemGroup {
       this.el.appendChild(this.renderTitle());
     }
 
-    map.on("idle", this.onMapReady);
+    map.on("idle", this.onMapIdle);
 
     return this.el;
   }
 
-  onMapReady = () => {
+  onMapIdle = () => {
     const { map } = this.context;
 
     if (map.getStyle().layers.length > 0) {
@@ -46,7 +46,10 @@ class Menu extends MenuItemGroup {
   };
 
   onStyleReady() {
-    map.off("idle", this.onMapReady);
+    this.context.styleReady = true;
+
+    map.off("idle", this.onMapIdle);
+
     this.el.appendChild(this.renderItems());
 
     if (this.visible && !this.el.classList.contains("map-context-menu")) {
@@ -55,11 +58,12 @@ class Menu extends MenuItemGroup {
   }
 
   renderTitle() {
+    const titleText =
+      typeof this.title === "function" ? this.title() : this.title;
     this.titleEl = createElement({
       className: "map-menu-title",
       properties: {
-        textContent:
-          typeof this.title === "function" ? this.title() : this.title
+        textContent: titleText
       }
     });
 
@@ -77,8 +81,9 @@ class Menu extends MenuItemGroup {
   }
 
   remove() {
-    this.context.map.off("idle", this.onMapReady);
-    this.context.map = undefined;
+    const { map } = this.context;
+    map.off("idle", this.onMapIdle);
+    map = undefined;
   }
 }
 

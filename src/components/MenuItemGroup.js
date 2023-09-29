@@ -4,30 +4,19 @@ import insertChildAtIndex from "../functions/insertChildAtIndex";
 class MenuItemGroup {
   constructor() {
     if (new.target === MenuItemGroup) {
-      throw new Error("Cannot directly instantiate MenuItemGroup");
+      throw new Error("MenuItemGroup should not be instantiated directly");
     }
 
     this.items = [];
     this.filteredItems = [];
     this.filterString = "";
-  }
-
-  setFilter(filterString) {
-    this.filterString = filterString.toLowerCase();
-    this.filteredItems = this.items.filter((item) =>
-      item.label.toLowerCase().includes(this.filterString)
-    );
-
-    this.itemContainerEl.innerHTML = "";
-    this.filteredItems.forEach((item) => {
-      this.itemContainerEl.appendChild(item.render(this.context));
+    this.itemContainerEl = createElement({
+      className: "map-menu-items"
     });
   }
 
   renderItems() {
-    this.itemContainerEl = createElement({
-      className: "map-menu-items"
-    });
+    this.itemContainerEl.innerHTML = "";
 
     this.filteredItems.forEach((item) => {
       this.itemContainerEl.appendChild(item.render(this.context));
@@ -40,11 +29,12 @@ class MenuItemGroup {
     const shouldRenderItem = this.shouldRenderItem(item);
 
     this.items.push(item);
+
     if (shouldRenderItem) {
       this.filteredItems.push(item);
     }
 
-    if (this.context?.map && this.itemContainerEl && shouldRenderItem) {
+    if (this.context?.map && this.context.styleReady && shouldRenderItem) {
       this.itemContainerEl.appendChild(item.render(this.context));
     }
   }
@@ -57,7 +47,7 @@ class MenuItemGroup {
       this.filteredItems.splice(index, 0, item);
     }
 
-    if (this.context?.map && this.itemContainerEl && this.shouldRenderItem) {
+    if (this.context?.map && this.context.styleReady && this.shouldRenderItem) {
       insertChildAtIndex(
         this.itemContainerEl,
         item.render(this.context),
@@ -81,6 +71,19 @@ class MenuItemGroup {
 
   getItems() {
     return this.items;
+  }
+
+  setFilter(filterString) {
+    this.filterString = filterString.toLowerCase();
+    this.updateFilteredItems();
+  }
+
+  updateFilteredItems() {
+    this.filteredItems = this.items.filter((item) =>
+      item.label.toLowerCase().includes(this.filterString)
+    );
+
+    this.renderItems();
   }
 }
 
