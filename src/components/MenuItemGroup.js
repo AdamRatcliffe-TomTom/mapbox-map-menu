@@ -16,7 +16,7 @@ class MenuItemGroup {
   }
 
   renderItems() {
-    this.itemContainerEl.innerHTML = "";
+    this.items.forEach((item) => item.remove());
 
     this.filteredItems.forEach((item) => {
       this.itemContainerEl.appendChild(item.render(this.context));
@@ -64,9 +64,9 @@ class MenuItemGroup {
   }
 
   removeAllItems() {
+    this.items.forEach((item) => item.remove());
     this.items.length = 0;
     this.filteredItems.length = 0;
-    this.itemContainerEl.innerHTML = "";
   }
 
   getItems() {
@@ -84,6 +84,10 @@ class MenuItemGroup {
     );
 
     this.renderItems();
+  }
+
+  remove() {
+    this.removeAllItems();
   }
 }
 

@@ -33,10 +33,13 @@ class MenuItem {
   };
 
   remove() {
-    if (this.el && this.el.parentElement) {
-      this.el.parentElement.removeChild(this.el);
+    if (this.el) {
+      this.el.removeEventListener("click", this.handleItemClick);
+
+      if (this.el.parentElement) {
+        this.el.parentElement.removeChild(this.el);
+      }
     }
-    this.el.removeEventListener(this.handleItemClick);
   }
 }
 

@@ -72,7 +72,10 @@ class LayerMenuItem extends MenuItem {
 
   remove() {
     super.remove();
-    this.checkboxEl.removeEventListener("click", this.handleToggle);
+
+    if (this.checkboxEl) {
+      this.checkboxEl.removeEventListener("click", this.handleToggle);
+    }
   }
 }
 
