@@ -15,11 +15,9 @@ class MenuItem {
       style: this.style
     });
 
-    if (typeof this.label === "function") {
-      this.el.appendChild(this.label());
-    } else {
-      this.el.textContent = this.label;
-    }
+    const labelContent =
+      typeof this.label === "function" ? this.label() : this.label;
+    this.el.append(labelContent);
 
     if (typeof this.onClick === "function") {
       this.el.addEventListener("click", this.handleItemClick);

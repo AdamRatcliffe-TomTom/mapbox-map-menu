@@ -26,7 +26,7 @@ export default function createElement({
     element.className = className;
   }
 
-  if (parent) {
+  if (parent instanceof Element) {
     parent.appendChild(element);
   }
 

@@ -53,6 +53,7 @@ class LayerMenuItem extends MenuItem {
       },
       parent: this.el
     });
+
     this.checkboxEl.addEventListener("click", this.handleToggle);
 
     return this.el;

@@ -81,11 +81,6 @@ class ContextMenu extends Menu {
 
   remove() {
     super.remove();
-
-    if (this.el && this.el.parentElement) {
-      this.el.parentElement.removeChild(this.el);
-    }
-
     this.removeEventListeners();
   }
 }
