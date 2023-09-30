@@ -30,9 +30,7 @@ class LayerMenuItem extends MenuItem {
     });
 
     if (this.showSymbol) {
-      const symbol = LegendSymbol({ sprite, zoom, layer });
-      const svg = symbolToElement(symbol);
-      this.el.appendChild(svg);
+      this.el.appendChild(this.renderSymbol(sprite, zoom, layer));
       this.el.style.gridTemplateColumns = "20px 1fr 20px";
     } else {
       this.el.style.gridTemplateColumns = "1fr 20px";
@@ -58,6 +56,11 @@ class LayerMenuItem extends MenuItem {
     this.checkboxEl.addEventListener("click", this.handleToggle);
 
     return this.el;
+  }
+
+  renderSymbol(sprite, zoom, layer) {
+    const symbol = LegendSymbol({ sprite, zoom, layer });
+    return symbolToElement(symbol, layer);
   }
 
   handleToggle = (event) => {

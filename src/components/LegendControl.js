@@ -12,7 +12,9 @@ class LegendControl extends MenuControl {
 
     this.el.classList.add("map-menu-legend");
 
-    this.titleEl.after(this.renderFilter());
+    this.header.after(this.renderFilter());
+
+    return this.el;
   }
 
   onStyleReady = () => {
@@ -22,13 +24,14 @@ class LegendControl extends MenuControl {
     const style = map.getStyle();
     const numLayers = style.layers.length;
 
-    createElement({
+    const subtitleEl = createElement({
       className: "map-menu-subtitle",
       properties: {
         textContent: `${numLayers} layers`
-      },
-      parent: this.titleEl
+      }
     });
+
+    this.header.appendChild(subtitleEl);
 
     // For each layer in the style add a legend item
     style.layers.forEach(({ id }) => {

@@ -14,6 +14,7 @@ class ContextMenu extends Menu {
   render(map) {
     super.render(map);
     this.el.classList.add("map-context-menu");
+    return this.el;
   }
 
   addToMap(map) {

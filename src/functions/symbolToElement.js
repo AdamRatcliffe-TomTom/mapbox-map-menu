@@ -1,6 +1,9 @@
-export default function symbolToElement(symbol) {
-  const element = document.createElement("div");
-  element.classList.add("map-menu-layer-item-symbol");
+import createElement from "./createElement";
+
+export default function symbolToElement(symbol, layer) {
+  const element = createElement({
+    className: "map-menu-layer-item-symbol"
+  });
 
   if (symbol) {
     switch (symbol.element) {
@@ -11,12 +14,18 @@ export default function symbolToElement(symbol) {
             symbol.attributes.style.backgroundImage
           )
         ) {
-          const img = document.createElement("img");
-          img.src = symbol.attributes.style.backgroundImage
-            .replace("url(", "")
-            .replace(")", "");
-          img.style.height = "20px";
-          element.appendChild(img);
+          createElement({
+            tagName: "img",
+            properties: {
+              src: symbol.attributes.style.backgroundImage
+                .replace("url(", "")
+                .replace(")", "")
+            },
+            style: {
+              height: "20px"
+            },
+            parent: element
+          });
         }
         element.style.backgroundColor = symbol.attributes.style.backgroundColor;
         element.style.backgroundPosition =
@@ -58,6 +67,15 @@ export default function symbolToElement(symbol) {
         console.log(symbol.element);
         return;
     }
+  } else if (layer.type === "background") {
+    createElement({
+      style: {
+        width: "20px",
+        height: "20px",
+        ...layer.paint
+      },
+      parent: element
+    });
   }
   return element;
 }

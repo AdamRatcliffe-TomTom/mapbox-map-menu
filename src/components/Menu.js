@@ -1,3 +1,4 @@
+import Header from "./Header";
 import MenuItemGroup from "./MenuItemGroup";
 import MenuContext from "./MenuContext";
 import createElement from "../functions/createElement";
@@ -29,7 +30,7 @@ class Menu extends MenuItemGroup {
     });
 
     if (this.title) {
-      this.el.appendChild(this.renderTitle());
+      this.header = new Header({ parent: this.el, title: this.title });
     }
 
     // Don't render the menu items and show the menu until the map's style
@@ -57,19 +58,6 @@ class Menu extends MenuItemGroup {
     if (this.visible && !this.el.classList.contains("map-context-menu")) {
       this.show();
     }
-  }
-
-  renderTitle() {
-    const titleText =
-      typeof this.title === "function" ? this.title() : this.title;
-    this.titleEl = createElement({
-      className: "map-menu-title",
-      properties: {
-        textContent: titleText
-      }
-    });
-
-    return this.titleEl;
   }
 
   show() {
