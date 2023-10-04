@@ -6,7 +6,7 @@ class MenuControl extends Menu {
     super(options);
 
     this.container = createElement({
-      className: "mapboxgl-ctrl"
+      className: "mapboxgl-ctrl maplibregl-ctrl"
     });
   }
 
@@ -37,18 +37,18 @@ class MenuControl extends Menu {
 
   renderLegendButton() {
     const wrapperEl = createElement({
-      className: "mapboxgl-ctrl-group"
+      className: "mapboxgl-ctrl-group maplibregl-ctrl-group"
     });
 
     const buttonEL = createElement({
       tagName: "button",
-      className: "mapboxgl-ctrl-menu"
+      className: "mapboxgl-ctrl-menu mapblibregl-ctrl-menu"
     });
     buttonEL.addEventListener("click", this.show);
 
     createElement({
       tagName: "span",
-      className: "mapboxgl-ctrl-icon",
+      className: "mapboxgl-ctrl-icon maplibregl-ctrl-icon",
       parent: buttonEL
     });
 

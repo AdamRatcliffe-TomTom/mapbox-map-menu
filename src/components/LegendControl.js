@@ -20,7 +20,7 @@ class LegendControl extends MenuControl {
   onStyleReady = () => {
     super.onStyleReady();
 
-    const map = this.context.map;
+    const { map } = this.context;
     const style = map.getStyle();
     const numLayers = style.layers.length;
 
