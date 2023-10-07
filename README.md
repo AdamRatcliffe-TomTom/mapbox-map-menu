@@ -103,6 +103,7 @@ contextMenu.addToMap(map);
 - [mapmenu.MenuControl](#mapmenumenucontrol)
 - [mapmenu.MenuItem](#mapmenumenuitem)
 - [mapmenu.LayerMenuItem](#mapmenulayermenuitem)
+- [mapmenu.DeckGLLayerMenuItem](#mapmenudeckgllayermenuitem)
 - [mapmenu.MenuSection](#mapmenumenusection)
 - [mapmenu.MenuItemSeparator](#mapmenumenuitemseparator)
 - [mapmenu.LegendControl](#mapmenulegendcontrol)
