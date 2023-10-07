@@ -185,7 +185,7 @@ A specialized menu item that's configured with the ID of a layer in the map styl
 
 Removes the menu item from the menu.
 
-`setLayerVisibility(visible: boolean)`
+`setLayerVisibility(visibility: string)`
 
 Sets the visibility of the layer associated with this menu item. The visibility argument must be one of "visible" or "none".
 
@@ -207,9 +207,9 @@ A specialized menu item that's configured with the ID of a [deck.gl](https://dec
 
 Removes the menu item from the menu.
 
-`setLayerVisibility(visibility: string)`
+`setLayerVisibility(visible: boolean)`
 
-Sets the visibility of the layer associated with this menu item. The visibility argument must be one of "visible" or "none".
+Sets the visibility of the layer associated with this menu item.
 
 ### mapmenu.MenuSection
 
