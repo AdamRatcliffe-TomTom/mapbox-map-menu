@@ -184,6 +184,28 @@ A specialized menu item that's configured with the ID of a layer in the map styl
 
 Removes the menu item from the menu.
 
+`setLayerVisibility(visible: boolean)`
+
+Sets the visibility of the layer associated with this menu item. The visibility argument must be one of "visible" or "none".
+
+### mapmenu.DeckGLLayerMenuItem
+
+A specialized menu item that's configured with the ID of a [deck.gl](https://deck.gl) layer and provides a checkbox to toggle its visibility on the map.
+
+#### Options
+
+| Name    | Type     | Default value | Description                                         |
+| ------- | -------- | ------------- | --------------------------------------------------- |
+| label   | string | none          | The menu item label                                 |
+| layerId | string | none          | The ID of the layer to create the menu item for |
+| style | Object    | none          | Style properties to be applied to the menu |
+
+#### Methods
+
+`remove()`
+
+Removes the menu item from the menu.
+
 `setLayerVisibility(visibility: string)`
 
 Sets the visibility of the layer associated with this menu item. The visibility argument must be one of "visible" or "none".
