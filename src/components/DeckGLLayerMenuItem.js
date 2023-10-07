@@ -53,7 +53,9 @@ class DeckGLLayerMenuItem extends MenuItem {
   };
 
   setLayerVisibility(visible) {
-    this.context.map.getLayer(this.layerId)?.setProps({ visible });
+    this.context.map
+      .getLayer(this.layerId)
+      ?.implementation?.setProps({ visible });
   }
 
   remove() {
