@@ -124,17 +124,21 @@ A menu control that implements the [IControl](https://docs.mapbox.com/mapbox-gl-
 
 #### Methods
 
-`addItem(item: mapmenu.MenuItem)`
+`addItem(item: mapmenu.MenuItem | mapmenu.MenuItemSeparator | mapmenu.MenuItemGroup)`
 
 Adds an item to the menu. Item is appended to the menu’s items.
 
-`insertItem(item: mapmenu.MenuItem, index: int)`
+`insertItem(item: mapmenu.MenuItem | mapmenu.MenuItemSeparator | mapmenu.MenuItemGroup, index: int)`
 
 Inserts an item in the menu at the specified index.
 
 `getItems()`
-
+ 
 Returns all items added to the menu.
+
+`removeItem(item: mapmenu.MenuItem | mapmenu.MenuItemSeparator | mapmenu.MenuItemGroup)`
+
+Removes the item from the menu.
 
 `removeAllItems()`
 
@@ -222,17 +226,21 @@ Sets the visibility of the layer associated with this menu item.
 
 #### Methods
 
-`addItem(item: mapmenu.MenuItem)`
+`addItem(item: mapmenu.MenuItem | mapmenu.MenuItemSeparator | mapmenu.MenuItemGroup)`
 
 Adds an item to the section. Item is appended to the section's items.
 
-`insertItem(item: mapmenu.MenuItem, index: int)`
+`insertItem(item: mapmenu.MenuItem | mapmenu.MenuItemSeparator | mapmenu.MenuItemGroup, index: int)`
 
 Inserts an item in the section at the specified index.
 
 `getItems()`
 
 Returns all items added to the section.
+
+`removeItem(item: mapmenu.MenuItem | mapmenu.MenuItemSeparator | mapmenu.MenuItemGroup)`
+
+Removes the item from the menu.
 
 `removeAllItems()`
 
@@ -317,17 +325,21 @@ Adds the context menu to the map.
 
 Removes the context menu from the map.
 
-`addItem(item: mapmenu.MenuItem)`
+`addItem(item: mapmenu.MenuItem | mapmenu.MenuItemSeparator | mapmenu.MenuItemGroup)`
 
 Adds an item to the menu. Item is appended to the menu’s items.
 
-`insertItem(item: mapmenu.MenuItem, index: int)`
+`insertItem(item: mapmenu.MenuItem | mapmenu.MenuItemSeparator | mapmenu.MenuItemGroup, index: int)`
 
 Inserts an item in the menu at the specified index.
 
 `getItems()`
 
 Returns all items added to the menu.
+
+`removeItem(item: mapmenu.MenuItem | mapmenu.MenuItemSeparator | mapmenu.MenuItemGroup)`
+
+Removes the item from the menu.
 
 `removeAllItems()`
 

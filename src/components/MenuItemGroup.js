@@ -39,6 +39,14 @@ class MenuItemGroup {
     }
   }
 
+  removeItem(item) {
+    const index = this.items.indexOf(item);
+    if (index !== -1) {
+      this.items.splice(index, 1);
+      item.remove();
+    }
+  }
+
   insertItem(item, index) {
     this.items.splice(index, 0, item);
 
