@@ -8,6 +8,7 @@ class Menu extends MenuItemGroup {
   constructor({ title = "", width = 240, visible = true, style = {} } = {}) {
     super();
 
+    this.type = "Menu";
     this.title = title;
     this.width = width;
     this.style = style;
@@ -26,6 +27,7 @@ class Menu extends MenuItemGroup {
       className: "map-menu",
       style: {
         width: `${this.width}px`,
+        display: this.visible && !this.type !== "ContextMenu" ? "flex" : "none",
         ...this.style
       }
     });
@@ -61,9 +63,9 @@ class Menu extends MenuItemGroup {
 
     this.el.appendChild(this.renderItems());
 
-    if (this.visible && !this.el.classList.contains("map-context-menu")) {
-      this.show();
-    }
+    // if (this.visible && !this.el.classList.contains("map-context-menu")) {
+    //   this.show();
+    // }
   }
 
   show() {

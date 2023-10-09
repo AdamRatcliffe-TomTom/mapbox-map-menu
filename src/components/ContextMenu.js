@@ -8,6 +8,7 @@ class ContextMenu extends Menu {
   constructor(options) {
     super({ ...defaultOptions, ...options });
 
+    this.type = "ContextMenu";
     this.hide = this.hide.bind();
   }
 

@@ -2,7 +2,7 @@
 
 .map-menu {
   box-sizing: border-box;
-  display: none;
+  /* display: none; */
   flex-direction: column;
   background-color: white;
   border-radius: 4px;
@@ -159,7 +159,7 @@
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  margin: 12px auto;
+  margin: 16px auto;
 }
 
 @keyframes rotation {

@@ -5,6 +5,8 @@ import createElement from "../functions/createElement";
 class LegendControl extends MenuControl {
   constructor(options = {}) {
     super({ title: "Legend", style: { height: "350px" }, ...options });
+
+    this.type = "LegendControl";
   }
 
   render(map) {

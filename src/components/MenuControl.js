@@ -5,6 +5,8 @@ class MenuControl extends Menu {
   constructor(options) {
     super(options);
 
+    this.type = "MenuControl";
+
     this.container = createElement({
       className: "mapboxgl-ctrl maplibregl-ctrl"
     });
@@ -16,9 +18,11 @@ class MenuControl extends Menu {
     this.el.classList.add("map-menu-control");
     this.el.appendChild(this.renderMinimizeButton());
 
-    this.legendButtonEl = this.renderLegendButton();
+    this.legendButtonEl = this.renderMaximizeButton();
     this.container.appendChild(this.legendButtonEl);
     this.container.appendChild(this.el);
+
+    this.visible ? this.show() : this.hide();
 
     return this.container;
   }
@@ -35,7 +39,7 @@ class MenuControl extends Menu {
     return buttonEL;
   }
 
-  renderLegendButton() {
+  renderMaximizeButton() {
     const wrapperEl = createElement({
       className: "mapboxgl-ctrl-group maplibregl-ctrl-group"
     });
