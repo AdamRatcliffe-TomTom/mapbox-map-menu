@@ -1,6 +1,7 @@
 import Header from "./Header";
 import MenuItemGroup from "./MenuItemGroup";
 import MenuContext from "./MenuContext";
+import Loader from "./Loader";
 import createElement from "../functions/createElement";
 
 class Menu extends MenuItemGroup {
@@ -33,6 +34,9 @@ class Menu extends MenuItemGroup {
       this.header = new Header({ parent: this.el, title: this.title });
     }
 
+    this.loader = new Loader();
+    this.el.appendChild(this.loader.render());
+
     // Don't render the menu items and show the menu until the map's style
     // is available
     map.on("idle", this.onMapIdle);
@@ -52,6 +56,8 @@ class Menu extends MenuItemGroup {
     this.context.styleReady = true;
 
     map.off("idle", this.onMapIdle);
+
+    this.loader.remove();
 
     this.el.appendChild(this.renderItems());
 

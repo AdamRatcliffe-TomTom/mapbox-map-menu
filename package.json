@@ -9,6 +9,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@watergis/legend-symbol": "^0.2.3"
+    "@watergis/legend-symbol": "^0.2.3",
+    "tinycolor2": "^1.6.0"
   }
 }

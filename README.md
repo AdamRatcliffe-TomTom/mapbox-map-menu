@@ -103,7 +103,7 @@ contextMenu.addToMap(map);
 - [mapmenu.MenuControl](#mapmenumenucontrol)
 - [mapmenu.MenuItem](#mapmenumenuitem)
 - [mapmenu.LayerMenuItem](#mapmenulayermenuitem)
-- [mapmenu.DeckGLLayerMenuItem](#mapmenudeckgllayermenuitem)
+- [mapmenu.DeckLayerMenuItem](#mapmenuDecklayermenuitem)
 - [mapmenu.MenuSection](#mapmenumenusection)
 - [mapmenu.MenuItemSeparator](#mapmenumenuitemseparator)
 - [mapmenu.LegendControl](#mapmenulegendcontrol)
@@ -115,12 +115,12 @@ A menu control that implements the [IControl](https://docs.mapbox.com/mapbox-gl-
 
 #### Options
 
-| Name      | Type   | Default value | Description                              |
-| --------- | ------ | ------------- | ---------------------------------------- |
-| title     | string \| Function | “”            | The menu title                           |
-| width     | int    | 240           | The width of the menu in pixels          |
-| visible   | boolean | true | Initial visibility of the menu. If true the menu will be shown when the map style is availble, if false the menu button must be clicked to show it |
-| style | Object    | none          | Style properties to be applied to the menu |
+| Name    | Type               | Default value | Description                                                                                                                                        |
+| ------- | ------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title   | string \| Function | “”            | The menu title                                                                                                                                     |
+| width   | int                | 240           | The width of the menu in pixels                                                                                                                    |
+| visible | boolean            | true          | Initial visibility of the menu. If true the menu will be shown when the map style is availble, if false the menu button must be clicked to show it |
+| style   | Object             | none          | Style properties to be applied to the menu                                                                                                         |
 
 #### Methods
 
@@ -154,11 +154,11 @@ A menu item. The display label can either be provided as a string or Function to
 
 #### Options
 
-| Name    | Type     | Default value | Description                                         |
-| ------- | -------- | ------------- | --------------------------------------------------- |
-| label   | string \| Function  | none          | The menu item label                                 |
-| onClick | Function | none          | Function to be called when the menu item is clicked |
-| style | Object    | none          | Style properties to be applied to the menu item |
+| Name    | Type               | Default value | Description                                         |
+| ------- | ------------------ | ------------- | --------------------------------------------------- |
+| label   | string \| Function | none          | The menu item label                                 |
+| onClick | Function           | none          | Function to be called when the menu item is clicked |
+| style   | Object             | none          | Style properties to be applied to the menu item     |
 
 #### Methods
 
@@ -172,12 +172,12 @@ A specialized menu item that's configured with the ID of a layer in the map styl
 
 #### Options
 
-| Name    | Type     | Default value | Description                                         |
-| ------- | -------- | ------------- | --------------------------------------------------- |
-| label   | string | none          | The menu item label                                 |
-| layerId | string | none          | The ID of the layer to create the menu item for |
-| showSymbol | boolean | true | If true will attempt to render a symbol for the layer |
-| style | Object    | none          | Style properties to be applied to the menu |
+| Name       | Type    | Default value | Description                                           |
+| ---------- | ------- | ------------- | ----------------------------------------------------- |
+| label      | string  | none          | The menu item label                                   |
+| layerId    | string  | none          | The ID of the layer to create the menu item for       |
+| showSymbol | boolean | true          | If true will attempt to render a symbol for the layer |
+| style      | Object  | none          | Style properties to be applied to the menu            |
 
 #### Methods
 
@@ -189,17 +189,17 @@ Removes the menu item from the menu.
 
 Sets the visibility of the layer associated with this menu item. The visibility argument must be one of "visible" or "none".
 
-### mapmenu.DeckGLLayerMenuItem
+### mapmenu.DeckLayerMenuItem
 
 A specialized menu item that's configured with the ID of a [deck.gl](https://deck.gl) layer and provides a checkbox to toggle its visibility on the map.
 
 #### Options
 
-| Name    | Type     | Default value | Description                                         |
-| ------- | -------- | ------------- | --------------------------------------------------- |
-| label   | string | none          | The menu item label                                 |
+| Name    | Type   | Default value | Description                                     |
+| ------- | ------ | ------------- | ----------------------------------------------- |
+| label   | string | none          | The menu item label                             |
 | layerId | string | none          | The ID of the layer to create the menu item for |
-| style | Object    | none          | Style properties to be applied to the menu |
+| style   | Object | none          | Style properties to be applied to the menu      |
 
 #### Methods
 
@@ -215,10 +215,10 @@ Sets the visibility of the layer associated with this menu item.
 
 #### Options
 
-| Name  | Type   | Default value | Description       |
-| ----- | ------ | ------------- | ----------------- |
-| title | string \| Function | “”            | The section title |
-| style | Object    | none          | Style properties to be applied to the menu section |
+| Name  | Type               | Default value | Description                                        |
+| ----- | ------------------ | ------------- | -------------------------------------------------- |
+| title | string \| Function | “”            | The section title                                  |
+| style | Object             | none          | Style properties to be applied to the menu section |
 
 #### Methods
 
@@ -246,9 +246,9 @@ Removes the section from the menu.
 
 #### Options
 
-| Name  | Type   | Default value | Description       |
-| ----- | ------ | ------------- | ----------------- |
-| style | Object    | none          | Style properties to be applied to the menu item separator |
+| Name  | Type   | Default value | Description                                               |
+| ----- | ------ | ------------- | --------------------------------------------------------- |
+| style | Object | none          | Style properties to be applied to the menu item separator |
 
 #### Methods
 
@@ -258,16 +258,16 @@ Removes the menu item separator from the menu.
 
 ### mapmenu.LegendControl
 
-A menu control that displays a legend entry for each layer on the map. *A work in progress*.
+A menu control that displays a legend entry for each layer on the map. _A work in progress_.
 
 #### Options
 
-| Name      | Type   | Default value | Description                              |
-| --------- | ------ | ------------- | ---------------------------------------- |
-| title     | string | “”            | The legend title                           |
-| width     | int    | 240           | The width of the legend in pixels          |
-| visible   | boolean | true | Initial visibility of the menu. If true the legend will be shown when the map style is availble, if false the menu button must be clicked to show it |
-| style | Object    | none          | Style properties to be applied to the legend |
+| Name    | Type    | Default value | Description                                                                                                                                          |
+| ------- | ------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title   | string  | “”            | The legend title                                                                                                                                     |
+| width   | int     | 240           | The width of the legend in pixels                                                                                                                    |
+| visible | boolean | true          | Initial visibility of the menu. If true the legend will be shown when the map style is availble, if false the menu button must be clicked to show it |
+| style   | Object  | none          | Style properties to be applied to the legend                                                                                                         |
 
 #### Methods
 
@@ -301,12 +301,11 @@ A context menu for the map.
 
 #### Options
 
-| Name      | Type   | Default value | Description                              |
-| --------- | ------ | ------------- | ---------------------------------------- |
-| title     | string | “”            | The menu title                           |
-| width     | int    | 180           | The width of the menu in pixels          |
-| style | Object    | none          | Style properties to be applied to the menu |
-
+| Name  | Type   | Default value | Description                                |
+| ----- | ------ | ------------- | ------------------------------------------ |
+| title | string | “”            | The menu title                             |
+| width | int    | 180           | The width of the menu in pixels            |
+| style | Object | none          | Style properties to be applied to the menu |
 
 #### Methods
 

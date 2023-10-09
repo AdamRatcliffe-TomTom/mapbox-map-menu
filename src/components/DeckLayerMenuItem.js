@@ -1,7 +1,7 @@
 import MenuItem from "./MenuItem";
 import createElement from "../functions/createElement";
 
-class DeckGLLayerMenuItem extends MenuItem {
+class DeckLayerMenuItem extends MenuItem {
   constructor(options = {}) {
     super(options);
 
@@ -20,7 +20,7 @@ class DeckGLLayerMenuItem extends MenuItem {
     }
 
     this.el = createElement({
-      className: "map-menu-item map-layer-menu-item",
+      className: "map-menu-item map-layer-menu-item deck-map-layer-menu-item",
       style: { gridTemplateColumns: "1fr 20px", ...this.style }
     });
 
@@ -67,4 +67,4 @@ class DeckGLLayerMenuItem extends MenuItem {
   }
 }
 
-export default DeckGLLayerMenuItem;
+export default DeckLayerMenuItem;

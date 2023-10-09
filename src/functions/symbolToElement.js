@@ -1,3 +1,4 @@
+import tinycolor from "tinycolor2";
 import createElement from "./createElement";
 
 export default function symbolToElement(symbol, layer) {
@@ -27,13 +28,18 @@ export default function symbolToElement(symbol, layer) {
             parent: element
           });
         }
-        element.style.backgroundColor = symbol.attributes.style.backgroundColor;
+
+        const color = tinycolor(symbol.attributes.style.backgroundColor);
+        if (symbol.attributes.style.opacity !== null) {
+          color.setAlpha(symbol.attributes.style.opacity);
+        }
+
+        element.style.backgroundColor = color.toRgbString();
         element.style.backgroundPosition =
           symbol.attributes.style.backgroundPosition;
         element.style.backgroundSize = symbol.attributes.style.backgroundSize;
         element.style.backgroundRepeat =
           symbol.attributes.style.backgroundRepeat;
-        element.style.opacity = symbol.attributes.style.opacity;
 
         break;
       case "svg":
