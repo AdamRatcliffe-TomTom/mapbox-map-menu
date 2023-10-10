@@ -1,7 +1,7 @@
 import createElement from "../functions/createElement";
 
 class MenuItem {
-  constructor({ label, onClick = () => {}, style = {} } = {}) {
+  constructor({ label, onClick, style = {} } = {}) {
     this.label = label;
     this.onClick = onClick;
     this.style = style;
@@ -21,6 +21,7 @@ class MenuItem {
 
     if (typeof this.onClick === "function") {
       this.el.addEventListener("click", this.handleItemClick);
+      this.el.style.cursor = "pointer";
     }
 
     return this.el;
@@ -32,7 +33,9 @@ class MenuItem {
 
   remove() {
     if (this.el) {
-      this.el.removeEventListener("click", this.handleItemClick);
+      if (typeof this.onClick === "function") {
+        this.el.removeEventListener("click", this.handleItemClick);
+      }
 
       if (this.el.parentElement) {
         this.el.parentElement.removeChild(this.el);
